@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KARVED — Premium 1:1 Physique Coaching for Men | Greg Lingard</title>
+<meta name="description" content="KARVED is a premium 1:1 physique coaching company for men who already train. Twelve years, 100+ transformations, founded by Greg Lingard.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Norwester';
+  src: url('https://cdn.jsdelivr.net/gh/AugustRush/font@master/Norwester-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --navy: #0D1129;
+  --navy-light: #141A36;
+  --cream: #FAF7F4;
+  --cream-mid: #F0EBE5;
+  --text-dark: #1A1A1A;
+  --text-body: #444444;
+  --text-light: rgba(255,255,255,0.85);
+  --text-light-mid: rgba(255,255,255,0.55);
+  --gold: #C4A44A;
+  --gold-light: #E8D5A3;
+  --grey-mid: #888888;
+  --border-subtle: rgba(0,0,0,0.06);
+  --border-light-dark: rgba(255,255,255,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+section[id], div[id] { scroll-margin-top: 80px; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--text-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body.menu-open { overflow: hidden; }
+
+/* ========== NAV ========== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 32px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(13, 17, 41, 0.95);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light-dark);
+}
+.nav-logo {
+  font-family: 'Norwester', sans-serif; font-size: 22px;
+  text-transform: uppercase; color: #FFFFFF;
+  text-decoration: none; letter-spacing: 2px;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.06); border-radius: 40px; padding: 6px 8px;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px;
+  font-weight: 500; padding: 8px 18px; border-radius: 30px; transition: all 0.25s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--navy); background: #FFFFFF;
+}
+.nav-cta {
+  display: inline-flex; align-items: center; padding: 10px 28px;
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3); color: var(--navy);
+  font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px;
+  text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;
+  border-radius: 40px; transition: all 0.25s ease;
+}
+.nav-cta:hover { background: linear-gradient(135deg, #E8D5A3, #C4A44A); transform: translateY(-1px); }
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 8px; background: none; border: none;
+}
+.nav-hamburger span { width: 22px; height: 2px; background: #FFFFFF; transition: all 0.3s ease; }
+
+/* Mobile drawer (left-side slide-in) */
+.mobile-menu-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.55);
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  z-index: 1099;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.mobile-menu-backdrop.open { opacity: 1; pointer-events: auto; }
+.mobile-menu {
+  position: fixed; top: 0; bottom: 0; left: 0;
+  width: min(320px, 85vw);
+  background: var(--navy);
+  border-right: 1px solid var(--border-light-dark);
+  box-shadow: 4px 0 32px rgba(0,0,0,0.4);
+  z-index: 1100;
+  display: flex; flex-direction: column;
+  padding: 20px 20px 28px;
+  transform: translateX(-100%);
+  transition: transform 0.32s ease;
+  overflow-y: auto;
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light-dark);
+  margin-bottom: 16px;
+}
+.mobile-menu-logo {
+  font-family: 'Norwester', sans-serif; font-size: 18px;
+  text-transform: uppercase; color: #FFFFFF; letter-spacing: 2px;
+  text-decoration: none;
+}
+.mobile-menu-close {
+  background: none; border: none; color: #FFFFFF;
+  font-size: 28px; cursor: pointer; padding: 4px 10px; line-height: 1;
+}
+.mobile-menu-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.mobile-menu-nav a {
+  display: block; color: #FFFFFF; text-decoration: none;
+  font-size: 16px; font-weight: 500;
+  padding: 14px 12px; border-radius: 8px;
+  transition: background 0.2s;
+}
+.mobile-menu-nav a:hover, .mobile-menu-nav a:active {
+  background: rgba(255,255,255,0.06);
+}
+.mobile-menu-cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-top: 16px; padding: 14px 22px;
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3);
+  color: var(--navy);
+  font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  text-decoration: none; border-radius: 40px;
+}
+
+@media (max-width: 860px) {
+  .nav { padding: 0 16px; }
+  .nav-links { display: none; }
+  .nav > .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2 {
+  font-family: 'Norwester', 'Montserrat', sans-serif;
+  text-transform: uppercase; color: var(--text-dark); letter-spacing: 0.5px;
+}
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600; color: var(--text-dark);
+  font-size: clamp(20px, 2.5vw, 24px); line-height: 1.3;
+}
+h1 { font-size: clamp(48px, 6vw, 64px); line-height: 1.05; }
+h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
+.on-dark h1, .on-dark h2, .on-dark h3 { color: #FFFFFF; }
+.on-dark .label { color: var(--gold-light); }
+.on-dark p, .on-dark span { color: var(--text-light); }
+
+/* ========== LAYOUT ========== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+@media (min-width: 768px) { .container { padding: 0 40px; } }
+.section { padding: 100px 0; }
+.section-cream { background: var(--cream); }
+.section-cream-mid { background: var(--cream-mid); }
+.section-navy { background: var(--navy); }
+.label {
+  font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 3px; color: var(--gold-light); margin-bottom: 20px;
+}
+@media (max-width: 600px) {
+  .section { padding: 64px 0; }
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 16px 40px; font-family: 'Montserrat', sans-serif;
+  font-weight: 600; font-size: 14px; text-transform: uppercase;
+  letter-spacing: 1.5px; text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-dark { background: var(--text-dark); color: #FFFFFF; border-radius: 40px; }
+.btn-dark:hover { background: #2A2A2A; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+.btn-gold {
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3); color: var(--navy);
+  border-radius: 40px;
+}
+.btn-gold:hover { background: linear-gradient(135deg, #E8D5A3, #C4A44A); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(196,164,74,0.3); }
+.btn-white { background: #FFFFFF; color: var(--navy); border-radius: 40px; }
+.btn-white:hover { background: var(--cream); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,255,255,0.15); }
+.btn-arrow::after { content: ' \2192'; margin-left: 8px; }
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding-top: 72px; position: relative; overflow: hidden; text-align: center;
+  background: var(--navy);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(13,17,41,0.7) 0%, rgba(13,17,41,0.85) 50%, var(--navy) 100%);
+  z-index: 1;
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50Z' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 56px 100px;
+}
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: var(--navy-light); }
+.hero-content { max-width: 820px; margin: 0 auto; position: relative; z-index: 2; }
+.hero-badge {
+  display: inline-block; padding: 6px 20px;
+  background: rgba(255,255,255,0.06); border-radius: 40px;
+  font-size: 13px; color: var(--text-light-mid); margin-bottom: 32px;
+}
+.hero-badge strong { color: #FFFFFF; font-weight: 600; }
+.hero h1 { margin-bottom: 16px; color: #FFFFFF; font-size: clamp(56px, 9vw, 96px); }
+.hero-subtitle-box {
+  display: inline-block; padding: 10px 32px;
+  border: 1px solid var(--gold-light); border-radius: 40px; margin-bottom: 28px;
+  background: rgba(196,164,74,0.08);
+}
+.hero-subtitle-box span {
+  font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px;
+  text-transform: uppercase; letter-spacing: 3px;
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 17px; color: var(--text-light); margin-bottom: 36px;
+  font-weight: 400; line-height: 1.7; max-width: 620px; margin-left: auto; margin-right: auto;
+}
+.hero-cta-row {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  flex-wrap: wrap; margin-bottom: 0;
+}
+.hero-trust {
+  font-size: 13px; color: var(--gold-light); font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase; margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .hero-badge { font-size: 12px; padding: 6px 14px; }
+  .hero h1 { font-size: clamp(44px, 13vw, 60px); }
+  .hero-subtitle-box { padding: 8px 22px; }
+  .hero-subtitle-box span { font-size: 12px; letter-spacing: 2px; }
+  .hero-sub { font-size: 15px; }
+  .hero-cta-row .btn { width: 100%; max-width: 320px; }
+}
+
+/* ========== CREDIBILITY STRIP ========== */
+.cred-strip { padding: 48px 0; background: var(--cream); }
+.cred-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; text-align: center;
+}
+.cred-item {
+  padding: 24px 16px; border: 1px solid var(--border-subtle);
+  background: #FFFFFF; border-radius: 12px;
+}
+.cred-num {
+  font-family: 'Norwester', sans-serif; font-size: clamp(28px, 4vw, 42px);
+  color: var(--text-dark); text-transform: uppercase; line-height: 1; margin-bottom: 4px;
+}
+.cred-label {
+  font-size: 11px; font-weight: 600; color: var(--grey-mid);
+  text-transform: uppercase; letter-spacing: 1.5px;
+}
+@media (max-width: 768px) {
+  .cred-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+@media (max-width: 460px) {
+  .cred-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ========== QUALIFIER (Who we work with) ========== */
+.qualify-section .container { max-width: 1100px; }
+.qualify-section h2, .qualify-section .label { text-align: center; }
+.qualify-grid {
+  margin-top: 48px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.qualify-col {
+  background: #FFFFFF; border: 1px solid var(--border-subtle);
+  border-radius: 12px; padding: 36px 32px;
+}
+.qualify-col h3 {
+  font-size: 18px; text-transform: uppercase;
+  letter-spacing: 1px; margin-bottom: 24px; color: var(--text-dark);
+}
+.qualify-col.col-fit h3 { color: var(--gold); }
+.qualify-col.col-not h3 { color: var(--grey-mid); }
+.qualify-list { list-style: none; padding: 0; margin: 0; }
+.qualify-list li {
+  position: relative; padding-left: 28px; padding-top: 8px; padding-bottom: 8px;
+  font-size: 15px; line-height: 1.6; color: var(--text-body);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.qualify-list li:last-child { border-bottom: none; }
+.qualify-list li::before {
+  position: absolute; left: 0; top: 10px;
+  font-size: 16px; font-weight: 600;
+}
+.col-fit .qualify-list li::before { content: '\2713'; color: var(--gold); }
+.col-not .qualify-list li::before { content: '\2212'; color: var(--grey-mid); }
+.qualify-footer {
+  margin-top: 40px; text-align: center; font-size: 16px;
+  color: var(--text-body); max-width: 600px;
+  margin-left: auto; margin-right: auto; line-height: 1.7;
+}
+.qualify-footer strong { color: var(--text-dark); }
+@media (max-width: 768px) {
+  .qualify-grid { grid-template-columns: 1fr; }
+  .qualify-col { padding: 28px 22px; }
+}
+
+/* ========== THE PROGRAMME ========== */
+.programme-section .container { max-width: 1000px; }
+.programme-section h2 { text-align: center; }
+.programme-section .label { text-align: center; }
+.programme-intro {
+  text-align: center; font-size: 17px; color: var(--text-body);
+  max-width: 660px; margin: 0 auto 48px; line-height: 1.7;
+}
+.programme-included {
+  background: #FFFFFF; border: 1px solid var(--border-subtle);
+  border-radius: 12px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.programme-included-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 22px 26px; border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.programme-included-item:nth-child(odd) { border-right: 1px solid rgba(0,0,0,0.04); }
+.programme-included-item:nth-last-child(-n+2) { border-bottom: none; }
+.programme-included-check { color: var(--gold); font-size: 14px; margin-top: 3px; flex-shrink: 0; font-weight: 700; }
+.programme-included-item span { font-size: 15px; color: var(--text-body); line-height: 1.5; }
+@media (max-width: 700px) {
+  .programme-included { grid-template-columns: 1fr; }
+  .programme-included-item:nth-child(odd) { border-right: none; }
+  .programme-included-item:nth-last-child(-n+2) { border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .programme-included-item:last-child { border-bottom: none; }
+}
+
+.programme-timeline-heading {
+  margin-top: 64px; margin-bottom: 24px; text-align: center;
+  font-size: 14px; font-weight: 600; color: var(--grey-mid);
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.timeline-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+}
+.timeline-card {
+  background: var(--navy); color: #FFFFFF;
+  padding: 28px 22px; border-radius: 12px;
+  border-top: 3px solid var(--gold);
+  position: relative;
+}
+.timeline-phase {
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 10px;
+}
+.timeline-card h3 {
+  color: #FFFFFF; font-size: 17px; margin-bottom: 10px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.timeline-card p { font-size: 14px; line-height: 1.6; color: var(--text-light); }
+@media (max-width: 900px) {
+  .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .timeline-grid { grid-template-columns: 1fr; }
+}
+
+.programme-cta-row {
+  margin-top: 56px; text-align: center;
+}
+.programme-cta-note {
+  margin-top: 18px; font-size: 14px; color: var(--grey-mid);
+  font-style: italic; max-width: 500px; margin-left: auto; margin-right: auto;
+}
+
+/* ========== SUMMER SHRED CALLOUT ========== */
+.ss-banner {
+  padding: 56px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border-light-dark);
+  border-bottom: 1px solid var(--border-light-dark);
+}
+.ss-banner-content {
+  display: flex; align-items: center; gap: 32px;
+  max-width: 1000px; margin: 0 auto;
+  padding: 0 24px;
+}
+.ss-banner-text { flex: 1; }
+.ss-banner-tag {
+  font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 2.5px;
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 8px;
+}
+.ss-banner h3 {
+  font-family: 'Norwester', sans-serif;
+  font-size: clamp(24px, 3vw, 30px); color: #FFFFFF;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;
+}
+.ss-banner p { font-size: 15px; color: var(--text-light); line-height: 1.6; max-width: 560px; }
+.ss-banner .btn { flex-shrink: 0; }
+@media (max-width: 768px) {
+  .ss-banner-content { flex-direction: column; align-items: flex-start; gap: 20px; padding: 0 16px; }
+  .ss-banner .btn { width: 100%; }
+}
+
+/* ========== TRANSFORMATIONS ========== */
+.transforms-stack { margin-top: 48px; display: flex; flex-direction: column; gap: 2px; }
+.transform-row {
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 380px;
+}
+.transform-row.reverse { direction: rtl; }
+.transform-row.reverse > * { direction: ltr; }
+.transform-image-col { position: relative; overflow: hidden; min-height: 380px; }
+.transform-text-col {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 48px 40px; background: var(--navy-light);
+}
+.transform-text-col .name {
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+  font-size: 18px; color: #FFFFFF; margin-bottom: 4px;
+}
+.transform-text-col .result {
+  font-size: 14px; color: var(--gold-light); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;
+}
+.transform-text-col .quote {
+  font-size: 16px; color: var(--text-light); line-height: 1.8;
+  border-left: 2px solid var(--gold-light); padding-left: 20px;
+}
+@media (max-width: 768px) {
+  .transform-row { grid-template-columns: 1fr; }
+  .transform-row.reverse { direction: ltr; }
+  .transform-image-col { min-height: 280px; }
+  .transform-text-col { padding: 32px 24px; }
+}
+
+/* ========== MID CTAs ========== */
+.mid-cta-navy { padding: 60px 0; text-align: center; background: var(--navy); }
+.mid-cta-navy p { font-size: 17px; color: var(--text-light); margin-bottom: 24px; }
+.mid-cta-cream { padding: 60px 0; text-align: center; background: var(--cream); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+.mid-cta-cream p { font-size: 17px; color: var(--text-body); margin-bottom: 24px; }
+
+/* ========== KARVED METHOD (approach) ========== */
+.approach-section .container { max-width: 900px; }
+.approach-section h2 { text-align: center; }
+.approach-section .label { text-align: center; }
+.approach-intro {
+  text-align: center; font-size: 17px; color: var(--text-body);
+  max-width: 640px; margin: 0 auto 48px; line-height: 1.7;
+}
+.approach-cards {
+  display: flex; flex-direction: column; gap: 16px;
+  max-width: 760px; margin-left: auto; margin-right: auto;
+}
+.approach-card {
+  background: #FFFFFF; padding: 32px 28px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px; position: relative; overflow: hidden;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.approach-card::before {
+  content: '';
+  width: 36px; height: 36px; flex-shrink: 0;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  background: linear-gradient(135deg, rgba(196,164,74,0.25), rgba(232,213,163,0.25));
+}
+.approach-card::after {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, #C4A44A, #E8D5A3);
+}
+.approach-card-body { flex: 1; }
+.approach-card h3 { margin-bottom: 12px; text-transform: uppercase; font-size: 18px; }
+.approach-card p { font-size: 16px; line-height: 1.7; color: var(--text-body); }
+.approach-bottom {
+  margin-top: 48px; text-align: center; font-size: 17px;
+  color: var(--text-body); max-width: 640px; margin-left: auto; margin-right: auto;
+  line-height: 1.7;
+}
+.approach-bottom strong { color: var(--text-dark); font-weight: 500; }
+
+/* ========== MEET GREG (story) ========== */
+.story-section { background: var(--navy); }
+.story-section .container { max-width: 1000px; }
+.story-section .label { color: var(--gold-light); }
+.story-section h2 { color: #FFFFFF; }
+.story-grid {
+  display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start;
+}
+@media (min-width: 768px) {
+  .story-grid { grid-template-columns: 320px 1fr; gap: 56px; }
+}
+.founder-image { width: 100%; height: 420px; position: relative; overflow: hidden; border-radius: 12px; }
+.founder-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.story-text p { font-size: 16px; line-height: 1.8; color: var(--text-light); margin-bottom: 20px; }
+.story-text .highlight { color: #FFFFFF; font-weight: 500; }
+.founder-meta { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+.founder-meta h3 { font-size: 16px; margin-bottom: 2px; text-transform: none; color: #FFFFFF; }
+.founder-meta .founder-role { font-size: 12px; color: var(--gold-light); text-transform: uppercase; letter-spacing: 2px; }
+
+/* ========== TESTIMONIALS (quote cards) ========== */
+.testimonials-section { background: var(--cream-mid); }
+.testimonials-section h2, .testimonials-section .label { text-align: center; }
+.testimonials-grid {
+  margin-top: 48px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.testimonial-card {
+  background: #FFFFFF; border: 1px solid var(--border-subtle);
+  border-radius: 12px; padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.testimonial-mark {
+  font-family: 'Norwester', sans-serif; font-size: 48px;
+  color: var(--gold); line-height: 0.6; opacity: 0.55;
+}
+.testimonial-card blockquote {
+  font-size: 16px; line-height: 1.7; color: var(--text-body);
+  font-style: italic; flex: 1;
+}
+.testimonial-card cite {
+  font-style: normal; font-size: 13px; color: var(--gold);
+  font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+}
+@media (max-width: 900px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+/* ========== FAQ ========== */
+.faq-section { background: var(--navy); }
+.faq-section .container { max-width: 800px; }
+.faq-section h2 { text-align: center; color: #FFFFFF; }
+.faq-section .label { text-align: center; }
+.faq-list { margin-top: 48px; }
+.faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+.faq-q {
+  font-weight: 500; font-size: 16px; color: #FFFFFF; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 22px 0; background: none; border: none; width: 100%;
+  text-align: left; font-family: 'Montserrat', sans-serif;
+}
+.faq-q::after { content: '+'; font-size: 22px; color: var(--gold-light); flex-shrink: 0; transition: transform 0.3s; font-weight: 400; }
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;
+  font-size: 15px; line-height: 1.7; color: var(--text-light);
+}
+.faq-item.open .faq-a { max-height: 320px; padding-bottom: 24px; }
+
+/* ========== BOOKING (HighLevel embed) ========== */
+.booking-section { background: var(--cream); text-align: center; }
+.booking-section .container { max-width: 900px; }
+.booking-section h2 { margin-bottom: 16px; }
+.booking-intro {
+  font-size: 17px; color: var(--text-body);
+  max-width: 620px; margin: 0 auto 48px; line-height: 1.7;
+}
+.booking-embed {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+.booking-embed iframe {
+  display: block; width: 100%; border: none;
+  min-height: 720px; border-radius: 12px;
+}
+.booking-note {
+  font-size: 13px; color: var(--gold); font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-top: 32px;
+}
+@media (max-width: 600px) {
+  .booking-embed iframe { min-height: 640px; }
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  padding: 48px 0 32px; text-align: center;
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-logo {
+  font-family: 'Norwester', sans-serif; font-size: 20px;
+  text-transform: uppercase; color: #FFFFFF; letter-spacing: 3px; margin-bottom: 20px;
+}
+.footer-links { display: flex; gap: 28px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+.footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
+.footer-links a:hover { color: #FFFFFF; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* ========== MOBILE STICKY CTA ========== */
+@media (max-width: 860px) {
+  .mobile-sticky {
+    position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 16px;
+    background: rgba(13, 17, 41, 0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255,255,255,0.08); z-index: 100; text-align: center;
+  }
+  .mobile-sticky .btn { width: 100%; padding: 14px 20px; font-size: 13px; }
+  body { padding-bottom: 64px; }
+}
+@media (min-width: 861px) { .mobile-sticky { display: none; } }
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#top" class="nav-logo">KARVED</a>
+  <div class="nav-links">
+    <a href="#programme" class="active">Programme</a>
+    <a href="#method">Method</a>
+    <a href="#greg">About</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#book" class="nav-cta">Book a Call</a>
+  <button class="nav-hamburger" onclick="openMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-menu-backdrop" onclick="closeMenu()"></div>
+<aside class="mobile-menu" aria-label="Mobile navigation">
+  <div class="mobile-menu-header">
+    <a href="#top" class="mobile-menu-logo" onclick="closeMenu()">KARVED</a>
+    <button class="mobile-menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="mobile-menu-nav">
+    <a href="#programme" onclick="closeMenu()">The Programme</a>
+    <a href="#shred" onclick="closeMenu()">Summer Shred</a>
+    <a href="#results" onclick="closeMenu()">Results</a>
+    <a href="#method" onclick="closeMenu()">Method</a>
+    <a href="#greg" onclick="closeMenu()">About Greg</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
+  </nav>
+  <a href="#book" class="mobile-menu-cta" onclick="closeMenu()">Book a Call</a>
+</aside>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" style="background-image:url('hero.jpeg');background-size:cover;background-position:center top;"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        Premium men's physique coaching · <strong>Since 2014</strong>
+      </div>
+      <h1>KARVED</h1>
+      <div class="hero-subtitle-box">
+        <span>Built for men who've done the work</span>
+      </div>
+      <p class="hero-sub">
+        We coach men who already train hard, eat reasonably well, and have the foundation in place — but whose physique doesn't reflect the effort. We give you the system, structure, and accountability that closes the gap.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#book" class="btn btn-gold btn-arrow">Book a Free Call</a>
+      </div>
+      <p class="hero-trust">Trusted by 100+ men across Australia and beyond</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY STRIP -->
+<section class="cred-strip">
+  <div class="container">
+    <div class="cred-grid">
+      <div class="cred-item">
+        <div class="cred-num">12+</div>
+        <div class="cred-label">Years Coaching</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-num">100+</div>
+        <div class="cred-label">Transformations</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-num">2:1</div>
+        <div class="cred-label">Coaching Ratio</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-num">60</div>
+        <div class="cred-label">Day Guarantee</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-num">24/7</div>
+        <div class="cred-label">Coach Access</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE WORK WITH (Qualifier) -->
+<section class="section section-cream qualify-section" id="who">
+  <div class="container">
+    <div class="label">Who we work with</div>
+    <h2>Not for everyone. Built for one type of man.</h2>
+
+    <div class="qualify-grid">
+      <div class="qualify-col col-fit">
+        <h3>You're a fit if</h3>
+        <ul class="qualify-list">
+          <li>You already train 3+ times a week — and have for years</li>
+          <li>Your nutrition is roughly in order, you just can't get the last 10% dialled</li>
+          <li>You want a coach, not an app or a template</li>
+          <li>You're prepared to be honest about your numbers, habits, and results</li>
+          <li>You have the budget for premium 1:1 attention</li>
+        </ul>
+      </div>
+      <div class="qualify-col col-not">
+        <h3>Probably not the right fit if</h3>
+        <ul class="qualify-list">
+          <li>You've never trained consistently and need to build the habit first</li>
+          <li>You're looking for a $29/month plan you can ignore</li>
+          <li>You want someone to motivate you to start</li>
+          <li>You're chasing a quick weekend fix</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="qualify-footer">
+      If you're not sure where you sit, <strong>book a call</strong>. Twenty minutes will tell us both.
+    </p>
+  </div>
+</section>
+
+<!-- THE PROGRAMME -->
+<section class="section section-cream-mid programme-section" id="programme">
+  <div class="container">
+    <div class="label">The Programme</div>
+    <h2>1:1 coaching for men who want it done right.</h2>
+    <p class="programme-intro">
+      The KARVED Programme is our flagship engagement — a fully custom, fully supported, 1:1 coaching relationship built around you specifically. Not a template. Not an app. A coach who knows your body, your schedule, and your goals — and adjusts the strategy every week to keep you progressing.
+    </p>
+
+    <div class="programme-included">
+      <div class="programme-included-item">
+        <span class="programme-included-check">&#10003;</span>
+        <span>Custom training plan, recalibrated weekly</span>
+      </div>
+      <div class="programme-included-item">
+        <span class="programme-included-check">&#10003;</span>
+        <span>Custom calorie, macro, and supplement strategy</span>
+      </div>
+      <div class="programme-included-item">
+        <span class="programme-included-check">&#10003;</span>
+        <span>2:1 coaching support — Greg plus a dedicated coach</span>
+      </div>
+      <div class="programme-included-item">
+        <span class="programme-included-check">&#10003;</span>
+        <span>Weekly check-ins with video feedback</span>
+      </div>
+      <div class="programme-included-item">
+        <span class="programme-included-check">&#10003;</span>
+        <span>24/7 WhatsApp access — form checks, questions, real-time adjustments</span>
+      </div>
+      <div class="programme-included-item">
+        <span class="programme-included-check">&#10003;</span>
+        <span>Zoom calls whenever you need them</span>
+      </div>
+      <div class="programme-included-item">
+        <span class="programme-included-check">&#10003;</span>
+        <span>Private community access</span>
+      </div>
+      <div class="programme-included-item">
+        <span class="programme-included-check">&#10003;</span>
+        <span>Full resource portal — protocols, recipes, training libraries</span>
+      </div>
+    </div>
+
+    <div class="programme-timeline-heading">What the engagement looks like</div>
+    <div class="timeline-grid">
+      <div class="timeline-card">
+        <div class="timeline-phase">Month 1</div>
+        <h3>Foundation</h3>
+        <p>Full physique audit, custom protocol built from scratch, training and nutrition dialled to your starting point.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-phase">Month 3</div>
+        <h3>Visible change</h3>
+        <p>Strategy locked, habits compounding. Most clients hit their first major milestone — visible composition change, real strength gains.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-phase">Month 6</div>
+        <h3>Integration</h3>
+        <p>Coaching becomes second nature. We push harder, the volume of adjustment drops, the results stack.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-phase">Month 12</div>
+        <h3>Independence</h3>
+        <p>You've built the engine. You know how your body responds. The protocol is yours — coach-optional from here.</p>
+      </div>
+    </div>
+
+    <div class="programme-cta-row">
+      <a href="#book" class="btn btn-gold btn-arrow">Book a Free Call</a>
+      <p class="programme-cta-note">
+        Investment is discussed on the call. The Programme is a premium 1:1 engagement, not a subscription. Most clients commit in 12-week blocks and continue.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMER SHRED CALLOUT -->
+<div class="ss-banner" id="shred">
+  <div class="ss-banner-content">
+    <div class="ss-banner-text">
+      <div class="ss-banner-tag">Ongoing · Limited intake</div>
+      <h3>The Summer Shred Challenge</h3>
+      <p>A focused 60-day transformation challenge with a $1,000 prize for the biggest physique change. Intake opens in waves throughout the year.</p>
+    </div>
+    <a href="https://summer-shred-lp.vercel.app" target="_blank" rel="noopener" class="btn btn-gold btn-arrow">See the Challenge</a>
+  </div>
+</div>
+
+<!-- RESULTS / TRANSFORMATIONS -->
+<section class="section section-navy" id="results">
+  <div class="container">
+    <div class="label" style="text-align:center;">Proof</div>
+    <h2 style="text-align:center; color:#fff;">Transformations that speak for themselves</h2>
+
+    <div class="transforms-stack">
+      <div class="transform-row">
+        <div class="transform-image-col">
+          <img src="transform 1.1.jpeg" alt="Client transformation — lost 4kg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="transform-text-col">
+          <div class="name">Client Result</div>
+          <div class="result">Lost 4kg</div>
+          <div class="quote">"I honestly couldn't thank you enough, you've literally changed my life."</div>
+        </div>
+      </div>
+
+      <div class="transform-row reverse">
+        <div class="transform-image-col">
+          <img src="Transform 2.2.jpeg" alt="Client transformation — lost 15.1kg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="transform-text-col">
+          <div class="name">Client Result</div>
+          <div class="result">Lost 15.1kg</div>
+          <div class="quote">"I knew what I needed to do, just had to pull my finger out and do it. Having your support is the biggest thing."</div>
+        </div>
+      </div>
+
+      <div class="transform-row">
+        <div class="transform-image-col">
+          <img src="Transform 3.3.jpeg" alt="Client transformation — lost 20.1kg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="transform-text-col">
+          <div class="name">Client Result</div>
+          <div class="result">Lost 20.1kg</div>
+          <div class="quote">"First time back in double digits haha! Cheers for your help with everything, it's been great!"</div>
+        </div>
+      </div>
+
+      <div class="transform-row reverse">
+        <div class="transform-image-col">
+          <img src="Transform 4.4.jpeg" alt="Client transformation — lost 10kg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="transform-text-col">
+          <div class="name">Client Result</div>
+          <div class="result">Lost 10kg</div>
+          <div class="quote">"Been getting a few compliments and feeling unreal! Appreciate the support mate!"</div>
+        </div>
+      </div>
+
+      <div class="transform-row">
+        <div class="transform-image-col">
+          <img src="Transform 5.5.jpeg" alt="Client transformation — lost 13.5kg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="transform-text-col">
+          <div class="name">Client Result</div>
+          <div class="result">Lost 13.5kg</div>
+          <div class="quote">"Having you guys in my corner is a game-changer. Keeps me accountable, tracks progress, and is always available to tweak or guide me through any nutrition or fitness challenges. Couldn't recommend enough."</div>
+        </div>
+      </div>
+
+      <div class="transform-row reverse">
+        <div class="transform-image-col">
+          <img src="Transform 6.6.jpeg" alt="Client transformation — lost 10kg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="transform-text-col">
+          <div class="name">Client Result</div>
+          <div class="result">Lost 10kg</div>
+          <div class="quote">"I've really enjoyed the journey we've been on together and can't wait for more, feeling amazing atm!"</div>
+        </div>
+      </div>
+
+      <div class="transform-row">
+        <div class="transform-image-col">
+          <img src="Transform 7.7.jpeg" alt="Client transformation — lost 7.6kg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="transform-text-col">
+          <div class="name">Client Result</div>
+          <div class="result">Lost 7.6kg</div>
+          <div class="quote">"This is the lowest I've been in 10-12 years. I was hesitant about getting a coach but this has been the difference I needed!"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MID CTA — Navy continuation -->
+<div class="mid-cta-navy">
+  <div class="container">
+    <p>Ready to be next?</p>
+    <a href="#book" class="btn btn-gold btn-arrow">Book a Free Call</a>
+  </div>
+</div>
+
+<!-- THE KARVED METHOD -->
+<section class="section section-cream-mid approach-section" id="method">
+  <div class="container">
+    <div class="label">The KARVED method</div>
+    <h2>No two strategies are the same.</h2>
+    <p class="approach-intro">
+      There is no one-size-fits-all physique. Every body, every schedule, every life is different. So we don't bolt you to a template. We figure out which strategy works for the man in front of us, then we build the system around that.
+    </p>
+
+    <div class="approach-cards">
+      <div class="approach-card">
+        <div class="approach-card-body">
+          <h3>The Bachelor's Approach</h3>
+          <p>For the single guy working long hours. Fewer external commitments means more control over your training and meal prep, so we structure aggressively around your work and lean into hard pushes when the runway is clear.</p>
+        </div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-body">
+          <h3>The Family Man</h3>
+          <p>Kids and family dinners are non-negotiable. We front-load your week and your day, so you've hit the work before evening — then sit down with the family without stressing about macros.</p>
+        </div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-body">
+          <h3>The Guy on the Move</h3>
+          <p>FIFO, travel, unpredictable rosters. We build strategies that move with your calendar, not against it. You stay on track when your environment changes daily.</p>
+        </div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-body">
+          <h3>The Operator</h3>
+          <p>Business owners, founders, executives. Energy and recovery are inputs to your work, not separate. We coach physique alongside sleep, stress, and cognitive load — because at this level they're inseparable.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="approach-bottom">
+      <p>Whichever shape your life takes, the underlying engineering is the same: <strong>preparation, accountability, and weekly adjustment.</strong> The strategy bends. The standards don't.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEET GREG -->
+<section class="section story-section" id="greg">
+  <div class="container">
+    <div class="label">Meet Greg</div>
+    <h2>I built this because I lived it.</h2>
+    <div class="story-grid">
+      <div class="founder-image">
+        <img src="hero.jpeg" alt="Greg Lingard, Founder of KARVED">
+      </div>
+      <div class="story-text">
+        <p>I was always the small kid. Couldn't put on size no matter what I tried, and I convinced myself I had "bad genetics." The reality was much simpler — my approach wasn't right.</p>
+        <p>Competitive rugby gave me the foundation: size, power, work ethic. But it didn't give me the aesthetic physique I was chasing. I looked like a rugby player, not like someone who trained for how they looked.</p>
+        <p>Six years ago I pivoted. Shifted my focus entirely to physique optimisation and performance. <span class="highlight">The results went insane.</span> Not because I suddenly got "better genetics" — because I finally had the right system.</p>
+        <p>That same system became KARVED. Twelve years of trial, error, and refinement across my own body and 100+ clients who started in exactly the position you might be in right now.</p>
+        <p>The point of this business isn't to sell you a program. It's to be the coach I wish I'd had when I was wasting years on bad strategy. Everything we do flows from that.</p>
+        <div class="founder-meta">
+          <h3>Greg Lingard</h3>
+          <div class="founder-role">Founder, KARVED</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="label">In their words</div>
+    <h2>What the men we work with say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <blockquote>I honestly couldn't thank you enough. You've literally changed my life.</blockquote>
+        <cite>Client · Lost 4kg</cite>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <blockquote>Having you guys in my corner is a game-changer. Keeps me accountable, tracks progress, and is always available to tweak or guide me through any nutrition or fitness challenges. Couldn't recommend enough.</blockquote>
+        <cite>Client · Lost 13.5kg</cite>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <blockquote>This is the lowest I've been in 10–12 years. I was hesitant about getting a coach but this has been the difference I needed.</blockquote>
+        <cite>Client · Lost 7.6kg</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="label">Common questions</div>
+    <h2>Everything you need to know</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">How is KARVED different from other coaches?</button>
+        <div class="faq-a">2:1 coaching with Greg and the team — not a single point of failure, not an app. Every protocol is custom, adjusted weekly, and backed by 12 years of in-the-trenches experience across 100+ men.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What does it cost?</button>
+        <div class="faq-a">We price transparently on your call. KARVED is a premium investment in personalised coaching — not a subscription. No surprises, no upsells.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How long until I see results?</button>
+        <div class="faq-a">Most clients notice visible changes within the first 14 days. By day 30 others notice. By day 60 you've got the kind of evidence that makes the next 6 months obvious.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if I don't have time to train every day?</button>
+        <div class="faq-a">You don't need to. Programs are built around your real schedule — 3 sessions or 6 — and we optimise for result-per-hour, not hours-in-the-gym.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What's the difference between the Programme and the Summer Shred?</button>
+        <div class="faq-a">The Summer Shred is a 60-day challenge with a fixed structure, fixed start, and a $1,000 prize. The Programme is our open-enrolment flagship — a longer engagement, more depth, fully custom from day one. The call helps us figure out which fits your situation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens after I book the call?</button>
+        <div class="faq-a">You'll get a confirmation. On the call we'll talk through where you're at, where you want to be, and what the right next step looks like. No pitch deck, no pressure — if we're not a fit, we'll say so.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Where are you based? Do you work remotely?</button>
+        <div class="faq-a">KARVED is built remote-first. Most clients are coached online via app, WhatsApp, and weekly video. We work with men across Australia and internationally.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if it doesn't work for me?</button>
+        <div class="faq-a">For the Summer Shred there's a 60-day money-back guarantee if you follow the program. For longer engagements, we work with you beyond the term at no extra cost until you hit your goal. Your result is the product.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK A CALL — Embedded HighLevel calendar -->
+<section class="section booking-section" id="book">
+  <div class="container">
+    <div class="label" style="text-align:center;">Take the next step</div>
+    <h2>Want to talk it through?</h2>
+    <p class="booking-intro">
+      Twenty minutes. Zero obligation. We'll talk through your current physique, your goal, and whether KARVED is the right move. If it isn't, we'll tell you straight.
+    </p>
+    <div class="booking-embed">
+      <iframe src="https://api.leadconnectorhq.com/widget/booking/LME0BL3Li8w4gRe9Jg0X" scrolling="no" id="LME0BL3Li8w4gRe9Jg0X_karvedhq"></iframe>
+    </div>
+    <p class="booking-note">No pitch, no pressure — just a conversation.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">KARVED</div>
+    <div class="footer-links">
+      <a href="#programme">Programme</a>
+      <a href="https://summer-shred-lp.vercel.app" target="_blank" rel="noopener">Summer Shred</a>
+      <a href="https://www.instagram.com/karved" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:greg@karved.com.au">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 KARVED. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="mobile-sticky">
+  <a href="#book" class="btn btn-gold">Book a Call</a>
+</div>
+
+<script>
+function openMenu() {
+  document.querySelector('.mobile-menu').classList.add('open');
+  document.querySelector('.mobile-menu-backdrop').classList.add('open');
+  document.body.classList.add('menu-open');
+}
+function closeMenu() {
+  document.querySelector('.mobile-menu').classList.remove('open');
+  document.querySelector('.mobile-menu-backdrop').classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
+
+document.querySelectorAll('.faq-q').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = this.parentElement;
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+var nav = document.querySelector('.nav');
+window.addEventListener('scroll', function() {
+  nav.style.borderBottomColor = window.scrollY > 20 ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.06)';
+});
+
+var sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', function() {
+  var scrollPos = window.scrollY + 100;
+  sections.forEach(function(section) {
+    if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+      var id = section.getAttribute('id');
+      document.querySelectorAll('.nav-links a').forEach(function(a) {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + id) a.classList.add('active');
+      });
+    }
+  });
+});
+
+// Hide mobile sticky CTA when the booking section is on screen
+var bookSection = document.getElementById('book');
+var sticky = document.querySelector('.mobile-sticky');
+if (bookSection && sticky && 'IntersectionObserver' in window) {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      sticky.style.opacity = entry.isIntersecting ? '0' : '1';
+      sticky.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
+    });
+  }, { threshold: 0.15 });
+  observer.observe(bookSection);
+}
+</script>
+
+<!-- HighLevel/LeadConnector booking widget auto-resize -->
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+
+</body>
+</html>
