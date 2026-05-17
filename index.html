@@ -1412,7 +1412,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
       <div class="pmpi-weakest-label">Fix this first</div>
       <div class="pmpi-weakest" id="pmpi-weakest"></div>
       <form class="pmpi-form" id="pmpi-form" onsubmit="return PMPI.submit(event)">
-        <p class="pmpi-form-intro">Get the full 21-page audit and a personalised 90-day plan in your inbox.</p>
+        <p class="pmpi-form-intro">Get the full 23-page audit (24 benchmarks across all 6 pillars) and your personalised 90-day plan in your inbox.</p>
         <input type="text" name="firstName" placeholder="First name" required autocomplete="given-name">
         <input type="email" name="email" placeholder="Your email" required autocomplete="email">
         <button type="submit" class="btn btn-gold btn-arrow">Send Me the Full Audit</button>
@@ -1510,9 +1510,9 @@ if (bookSection && sticky && 'IntersectionObserver' in window) {
     ]},
     { pillar: 'Pillar 03 · Cardio', question: 'Your most recent 5km time?', options: [
       { label: "Over 27 minutes, or I can't run 5km", score: 0 },
-      { label: '25–27 minutes (Baseline)', score: 3 },
-      { label: '24–25 minutes (Good)', score: 4 },
-      { label: 'Under 24 minutes (Great)', score: 5 }
+      { label: '24–27 minutes (Baseline)', score: 3 },
+      { label: '21–24 minutes (Good)', score: 4 },
+      { label: 'Under 21 minutes (Great)', score: 5 }
     ]},
     { pillar: 'Pillar 04 · Mobility', question: 'Deep squat hold, how long can you sit comfortably?', options: [
       { label: "Can't reach the position", score: 0 },
@@ -1525,6 +1525,12 @@ if (bookSection && sticky && 'IntersectionObserver' in window) {
       { label: '7 hours (Baseline)', score: 3 },
       { label: '7.5 hours (Good)', score: 4 },
       { label: '8+ hours (Great)', score: 5 }
+    ]},
+    { pillar: 'Pillar 06 · Cognition', question: 'Deep focus, no phone, on one task, how long do you last?', options: [
+      { label: 'Under 30 minutes', score: 0 },
+      { label: '30–60 minutes (Baseline)', score: 3 },
+      { label: '60–90 minutes (Good)', score: 4 },
+      { label: '90+ minutes (Great)', score: 5 }
     ]}
   ];
 
