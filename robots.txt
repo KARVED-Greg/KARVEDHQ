@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karved.com.au/sitemap.xml
