@@ -622,10 +622,11 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
   padding: 8px;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  scroll-margin-top: 100px;
 }
 .booking-embed iframe {
   display: block; width: 100%; border: none;
-  min-height: 1120px; border-radius: 12px;
+  min-height: 760px; border-radius: 12px;
 }
 .booking-note {
   font-size: 15px; color: var(--text-body); font-weight: 500;
@@ -634,7 +635,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
   margin-left: auto; margin-right: auto;
 }
 @media (max-width: 600px) {
-  .booking-embed iframe { min-height: 1200px; }
+  .booking-embed iframe { min-height: 720px; }
 }
 
 /* ========== FOOTER ========== */
@@ -1344,30 +1345,15 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
 </section>
 
 <!-- BOOK A CALL, Embedded HighLevel calendar -->
-<section class="section booking-section" id="book">
+<section class="section booking-section">
   <div class="container">
     <div class="label" style="text-align:center;">Take the next step</div>
-    <h2>Book your strategy call</h2>
+    <h2 id="book-heading">Book your strategy call</h2>
     <p class="booking-intro">
       Twenty minutes. Zero obligation. We'll talk through your current physique, your goal, and whether KARVED is the right move. If it isn't, we'll tell you straight.
     </p>
-    <div class="booking-embed">
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/HV988HD7do2LsKTvi07h"
-        id="inline-HV988HD7do2LsKTvi07h"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="KARVED Consultation Call"
-        data-height="1093"
-        data-layout-iframe-id="inline-HV988HD7do2LsKTvi07h"
-        data-form-id="HV988HD7do2LsKTvi07h"
-        title="KARVED Consultation Call"
-        scrolling="no"></iframe>
+    <div class="booking-embed" id="book">
+      <iframe src="https://api.leadconnectorhq.com/widget/booking/yx1u3vn3TPDR0vE0pLi6" scrolling="no" id="yx1u3vn3TPDR0vE0pLi6_karvedhq" title="KARVED Strategy Call"></iframe>
     </div>
     <p class="booking-note">"If you've gotten this far, you're somebody I know we can help. Book a call above and let's unlock your next evolution."</p>
   </div>
