@@ -85,7 +85,7 @@ body.menu-open { overflow: hidden; }
   display: inline-flex; align-items: center; gap: 10px;
   text-decoration: none; color: #FFFFFF;
 }
-.nav-logo-mark { width: 32px; height: 32px; display: block; flex-shrink: 0; }
+.nav-logo-mark { width: 34px; height: 34px; display: block; flex-shrink: 0; object-fit: contain; }
 .nav-logo-text {
   font-family: 'Norwester', sans-serif; font-size: 22px;
   text-transform: uppercase; color: #FFFFFF;
@@ -281,6 +281,15 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
   font-size: 13px; color: var(--gold-light); font-weight: 500;
   letter-spacing: 1px; text-transform: uppercase; margin-top: 16px;
 }
+.hero-quiz-link {
+  display: inline-block; margin-top: 18px;
+  background: none; border: none; cursor: pointer;
+  font-family: inherit; font-size: 14px;
+  color: var(--text-light); text-decoration: underline; text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+.hero-quiz-link:hover { color: #FFFFFF; }
+.hero-quiz-link strong { color: var(--gold-light); font-weight: 600; }
 
 @media (max-width: 600px) {
   .hero-badge { font-size: 12px; padding: 6px 14px; }
@@ -892,29 +901,14 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
 
 <body>
 
-<!-- SVG SPRITE (hex-K logo, referenced via <use>) -->
-<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
-  <defs>
-    <linearGradient id="karved-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#C4A44A"/>
-      <stop offset="55%" stop-color="#F2E1B8"/>
-      <stop offset="100%" stop-color="#C4A44A"/>
-    </linearGradient>
-    <symbol id="karved-mark" viewBox="0 0 100 100">
-      <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" fill="none" stroke="url(#karved-gold)" stroke-width="3.5" stroke-linejoin="miter"/>
-      <path d="M 32 28 L 41 28 L 41 47 L 60 28 L 71 28 L 51 48 L 71 72 L 60 72 L 41 53 L 41 72 L 32 72 Z" fill="url(#karved-gold)"/>
-    </symbol>
-  </defs>
-</svg>
-
 <!-- NAV -->
 <nav class="nav">
   <a href="#top" class="nav-logo" aria-label="KARVED home">
-    <svg class="nav-logo-mark"><use href="#karved-mark"/></svg>
+    <img src="karved-logo.png" alt="" class="nav-logo-mark">
     <span class="nav-logo-text">KARVED</span>
   </a>
   <div class="nav-links">
-    <a href="#" onclick="PMPI.open(); return false;">PMPI Quiz</a>
+    <a href="#" onclick="PMPI.open(); return false;">Performance Quiz</a>
     <a href="#programme" class="active">Programme</a>
     <a href="#method">Method</a>
     <a href="#greg">About</a>
@@ -934,7 +928,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
     <button class="mobile-menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
   </div>
   <nav class="mobile-menu-nav">
-    <a href="#" onclick="closeMenu(); PMPI.open(); return false;">PMPI Quiz</a>
+    <a href="#" onclick="closeMenu(); PMPI.open(); return false;">Performance Quiz</a>
     <a href="#programme" onclick="closeMenu()">The Programme</a>
     <a href="#shred" onclick="closeMenu()">Summer Shred</a>
     <a href="#results" onclick="closeMenu()">Results</a>
@@ -963,6 +957,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
       <div class="hero-cta-row">
         <a href="#book" class="btn btn-gold btn-arrow">Book a Free Call</a>
       </div>
+      <button type="button" class="hero-quiz-link" onclick="PMPI.open()">Or take the 2-min <strong>Performance Quiz</strong> &rarr;</button>
       <p class="hero-trust">Trusted by 100+ men across Australia and beyond</p>
     </div>
   </div>
@@ -1385,7 +1380,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
     <!-- Intro screen -->
     <div class="pmpi-screen" data-screen="intro">
       <div class="pmpi-mark"><img src="karved-logo.png" alt="KARVED" loading="eager"></div>
-      <div class="pmpi-eyebrow">Peak Male Performance Index</div>
+      <div class="pmpi-eyebrow">Performance Quiz</div>
       <h2 class="pmpi-title">Where do you actually stand?</h2>
       <p class="pmpi-lead">The 6-pillar audit. One score out of 100. Two minutes. Find out which pillar is dragging you down, and exactly what to fix first.</p>
       <button class="btn btn-gold btn-arrow" onclick="PMPI.start()">Start the Assessment</button>
@@ -1407,7 +1402,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
 
     <!-- Results screen -->
     <div class="pmpi-screen" data-screen="results">
-      <div class="pmpi-eyebrow">Your Index Score</div>
+      <div class="pmpi-eyebrow">Your Score</div>
       <div class="pmpi-score" id="pmpi-score">0</div>
       <div class="pmpi-score-label">out of 100</div>
       <div class="pmpi-tier" id="pmpi-tier"></div>
@@ -1679,7 +1674,7 @@ if (bookSection && sticky && 'IntersectionObserver' in window) {
           score: QUESTIONS[i].options[a].score
         };
       }),
-      source: 'karved.com.au · PMPI quiz',
+      source: 'karved.com.au · Performance Quiz',
       timestamp: new Date().toISOString()
     };
     if (HIGHLEVEL_WEBHOOK_URL) {
