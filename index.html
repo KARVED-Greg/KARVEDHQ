@@ -624,9 +624,9 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
   box-shadow: 0 4px 24px rgba(0,0,0,0.04);
   scroll-margin-top: 100px;
 }
-.booking-embed iframe {
-  display: block; width: 100%; border: none;
-  min-height: 760px; border-radius: 12px;
+.booking-embed .calendly-inline-widget {
+  width: 100%; min-width: 320px; height: 760px;
+  border-radius: 12px; overflow: hidden;
 }
 .booking-note {
   font-size: 15px; color: var(--text-body); font-weight: 500;
@@ -635,7 +635,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
   margin-left: auto; margin-right: auto;
 }
 @media (max-width: 600px) {
-  .booking-embed iframe { min-height: 720px; }
+  .booking-embed .calendly-inline-widget { height: 860px; }
 }
 
 /* ========== FOOTER ========== */
@@ -1344,7 +1344,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
   </div>
 </section>
 
-<!-- BOOK A CALL, Embedded HighLevel calendar -->
+<!-- BOOK A CALL, Embedded Calendly scheduler -->
 <section class="section booking-section">
   <div class="container">
     <div class="label" style="text-align:center;">Take the next step</div>
@@ -1353,7 +1353,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
       Twenty minutes. Zero obligation. We'll talk through your current physique, your goal, and whether KARVED is the right move. If it isn't, we'll tell you straight.
     </p>
     <div class="booking-embed" id="book">
-      <iframe src="https://api.leadconnectorhq.com/widget/booking/yx1u3vn3TPDR0vE0pLi6" scrolling="no" id="yx1u3vn3TPDR0vE0pLi6_karvedhq" title="KARVED Strategy Call"></iframe>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/karvedhq/karved-strategy-call" style="min-width:320px;height:760px;"></div>
     </div>
     <p class="booking-note">"If you've gotten this far, you're somebody I know we can help. Book a call above and let's unlock your next evolution."</p>
   </div>
@@ -1728,8 +1728,9 @@ if (bookSection && sticky && 'IntersectionObserver' in window) {
 })();
 </script>
 
-<!-- HighLevel/LeadConnector booking widget auto-resize -->
-<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+<!-- Calendly scheduling widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
 </body>
 </html>
