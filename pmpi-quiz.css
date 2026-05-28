@@ -1,0 +1,262 @@
+/* ============================================================
+   PMPI Performance Quiz - reusable popup component
+   Drop into any page with: <link rel="stylesheet" href="pmpi-quiz.css">
+   Brand vars + button styles are scoped to .pmpi-modal so they
+   never collide with the host page's own CSS.
+   ============================================================ */
+
+.pmpi-modal {
+  /* scoped brand tokens (the quiz card is always light, regardless of page theme) */
+  --cream: #FAF7F4;
+  --gold: #C4A44A;
+  --gold-light: #E8D5A3;
+  --navy: #0D1129;
+  --text-dark: #1A1A1A;
+  --text-body: #444444;
+  --grey-mid: #888888;
+  --border-subtle: rgba(0,0,0,0.06);
+
+  position: fixed; inset: 0;
+  z-index: 5000;
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+.pmpi-modal.open { display: flex; opacity: 1; }
+.pmpi-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.75);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+
+/* Scoped buttons used inside the modal */
+.pmpi-modal .btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 16px 40px; font-family: 'Montserrat', sans-serif;
+  font-weight: 600; font-size: 14px; text-transform: uppercase;
+  letter-spacing: 1.5px; text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.3s ease; border-radius: 40px;
+}
+.pmpi-modal .btn-gold { background: linear-gradient(135deg, #C4A44A, #E8D5A3); color: var(--navy); }
+.pmpi-modal .btn-gold:hover { background: linear-gradient(135deg, #E8D5A3, #C4A44A); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(196,164,74,0.3); }
+.pmpi-modal .btn-arrow::after { content: ' \2192'; margin-left: 8px; }
+
+.pmpi-card {
+  position: relative;
+  background: var(--cream);
+  width: 100%; max-width: 560px;
+  max-height: 92vh; overflow-y: auto;
+  border-radius: 16px;
+  padding: 44px 36px 36px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  border: 1px solid rgba(196,164,74,0.25);
+}
+.pmpi-close {
+  position: absolute; top: 14px; right: 14px;
+  background: rgba(0,0,0,0.06); border: none;
+  width: 34px; height: 34px; border-radius: 50%;
+  font-size: 22px; cursor: pointer;
+  color: var(--text-body); line-height: 1; padding: 0;
+  transition: background 0.2s; z-index: 2;
+}
+.pmpi-close:hover { background: rgba(0,0,0,0.12); }
+.pmpi-screen { display: none; text-align: center; }
+.pmpi-screen.active { display: block; }
+.pmpi-mark { width: 80px; height: 80px; margin: 0 auto 20px; }
+.pmpi-mark svg, .pmpi-mark img { width: 100%; height: 100%; display: block; object-fit: contain; }
+.pmpi-eyebrow {
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+  font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+}
+.pmpi-title {
+  font-family: 'Norwester', sans-serif;
+  font-size: clamp(26px, 4vw, 32px); line-height: 1.1;
+  color: var(--text-dark); text-transform: uppercase;
+  margin-bottom: 16px; letter-spacing: 0.5px;
+}
+.pmpi-lead {
+  font-size: 15px; line-height: 1.65;
+  color: var(--text-body);
+  max-width: 420px; margin: 0 auto 28px;
+}
+.pmpi-dismiss {
+  display: block; margin: 16px auto 0;
+  background: none; border: none;
+  font-size: 13px; color: var(--grey-mid);
+  cursor: pointer; text-decoration: underline;
+  font-family: inherit;
+}
+.pmpi-progress {
+  width: 100%; height: 4px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 2px; margin-bottom: 14px; overflow: hidden;
+}
+.pmpi-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #C4A44A, #E8D5A3);
+  width: 16.67%;
+  transition: width 0.3s ease;
+}
+.pmpi-step-label {
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--grey-mid); margin-bottom: 4px;
+}
+.pmpi-pillar {
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+  font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+}
+.pmpi-question {
+  font-family: 'Norwester', sans-serif;
+  font-size: 22px; line-height: 1.2;
+  color: var(--text-dark); text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.pmpi-options {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-bottom: 28px; text-align: left;
+}
+.pmpi-option {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  font-size: 14.5px; color: var(--text-body);
+  transition: all 0.18s ease;
+  display: flex; align-items: center; gap: 12px;
+  font-family: inherit; text-align: left; width: 100%;
+}
+.pmpi-option:hover { border-color: var(--gold); background: #FFFCF6; }
+.pmpi-option.selected {
+  border-color: var(--gold);
+  background: rgba(196,164,74,0.08);
+  font-weight: 600; color: var(--text-dark);
+}
+.pmpi-option-radio {
+  width: 18px; height: 18px;
+  border: 2px solid var(--grey-mid);
+  border-radius: 50%;
+  flex-shrink: 0; position: relative;
+  transition: border-color 0.18s;
+}
+.pmpi-option.selected .pmpi-option-radio { border-color: var(--gold); }
+.pmpi-option.selected .pmpi-option-radio::after {
+  content: ''; position: absolute;
+  inset: 2px; border-radius: 50%;
+  background: var(--gold);
+}
+.pmpi-actions {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.pmpi-back {
+  background: none; border: none;
+  font-size: 14px; color: var(--grey-mid);
+  cursor: pointer; padding: 12px 8px; font-family: inherit;
+}
+.pmpi-back:hover { color: var(--text-dark); }
+.pmpi-actions .btn { padding: 13px 28px; font-size: 13px; }
+.pmpi-actions .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+.pmpi-score {
+  font-family: 'Norwester', sans-serif;
+  font-size: 96px; line-height: 1;
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 8px;
+}
+.pmpi-score-label {
+  font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--grey-mid); margin-bottom: 14px;
+}
+.pmpi-tier {
+  font-family: 'Norwester', sans-serif;
+  font-size: 26px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text-dark);
+  margin-bottom: 8px;
+}
+.pmpi-tier-desc {
+  font-size: 14px; line-height: 1.6;
+  color: var(--text-body); max-width: 420px;
+  margin: 0 auto 22px;
+}
+.pmpi-divider {
+  width: 60px; height: 2px;
+  background: var(--gold-light);
+  margin: 0 auto 18px;
+}
+.pmpi-compare {
+  background: rgba(196,164,74,0.08);
+  border: 1px solid rgba(196,164,74,0.25);
+  border-left: 3px solid var(--gold);
+  padding: 14px 18px;
+  margin: 0 auto 22px;
+  max-width: 460px;
+  font-size: 14px; line-height: 1.55;
+  color: var(--text-body);
+  border-radius: 8px;
+  text-align: left;
+}
+.pmpi-compare strong { color: var(--text-dark); font-weight: 600; }
+.pmpi-weakest-label {
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--grey-mid);
+  margin-bottom: 4px;
+}
+.pmpi-weakest {
+  font-family: 'Norwester', sans-serif;
+  font-size: 22px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 24px;
+}
+.pmpi-form {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 22px 22px 18px;
+  text-align: left;
+}
+.pmpi-form-intro {
+  font-size: 14px; color: var(--text-body);
+  margin-bottom: 14px; text-align: center;
+  line-height: 1.5;
+}
+.pmpi-form input {
+  width: 100%; padding: 12px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  font-size: 15px; font-family: inherit;
+  margin-bottom: 10px;
+  background: var(--cream);
+}
+.pmpi-form input:focus {
+  outline: none; border-color: var(--gold);
+  background: #FFFFFF;
+}
+.pmpi-form .btn { width: 100%; margin-top: 6px; padding: 14px 20px; }
+.pmpi-form-note {
+  font-size: 12px; color: var(--grey-mid);
+  margin-top: 10px; text-align: center;
+}
+.pmpi-check {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3);
+  color: #FFFFFF;
+  font-size: 32px; line-height: 64px;
+  margin: 0 auto 18px;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .pmpi-card { padding: 38px 20px 26px; max-height: 95vh; border-radius: 12px; }
+  .pmpi-title { font-size: 24px; }
+  .pmpi-question { font-size: 20px; }
+  .pmpi-score { font-size: 80px; }
+}
