@@ -37,7 +37,7 @@ body {
 }
 .wrap { max-width: 820px; margin: 0 auto; padding: 30px 20px 70px; text-align: center; }
 
-.logo { display: inline-block; margin-bottom: 26px; }
+.logo { display: inline-block; margin-bottom: 7px; }
 .logo img { height: 82px; width: auto; max-width: 82vw; display: block; }
 
 .banner {
@@ -49,7 +49,7 @@ body {
   font-size: 12px; font-weight: 600;
   letter-spacing: 0.6px; text-transform: uppercase;
   color: var(--text-light);
-  margin-bottom: 34px; line-height: 1.4;
+  margin-bottom: 8px; line-height: 1.4;
 }
 .banner::before {
   content: ''; width: 9px; height: 9px; border-radius: 50%;
@@ -59,15 +59,15 @@ body {
 
 h1 {
   font-family: 'Astrid Grotesk', 'Norwester', sans-serif; font-weight: normal;
-  font-size: clamp(40px, 8vw, 70px); line-height: 1;
-  letter-spacing: 0; text-transform: uppercase;
-  color: #FFFFFF; margin-bottom: 34px;
+  font-size: clamp(32px, 6vw, 56px); line-height: 1;
+  letter-spacing: 0; text-transform: uppercase; text-wrap: balance;
+  color: #FFFFFF; margin-bottom: 8px;
 }
 
 /* Transformation collage + play button */
 .collage {
   position: relative; cursor: pointer;
-  max-width: 820px; margin: 0 auto 32px;
+  max-width: 820px; margin: 0 auto 8px;
   background: #05070D; border-radius: 10px; overflow: hidden;
 }
 .collage img { width: 100%; height: auto; display: block; }
@@ -96,10 +96,10 @@ h1 {
 .cta-btn {
   display: block; width: 100%; max-width: 700px; margin: 0 auto;
   background: linear-gradient(135deg, #C4A44A, #E8D5A3);
-  color: #1A1A1A; border: none; cursor: pointer;
+  color: #000000; border: none; cursor: pointer;
   border-radius: 12px; padding: 22px 24px;
-  font-family: 'Norwester', sans-serif;
-  font-size: clamp(22px, 3.6vw, 32px); letter-spacing: 1px;
+  font-family: 'Astrid Grotesk', 'Norwester', sans-serif;
+  font-size: clamp(24px, 4vw, 36px); letter-spacing: 0.5px;
   text-transform: uppercase; line-height: 1.1;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 10px 40px rgba(196,164,74,0.22);
@@ -109,7 +109,7 @@ h1 {
   display: block; margin-top: 6px;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(26,26,26,0.7);
+  text-transform: uppercase; color: rgba(0,0,0,0.72);
 }
 
 @media (max-width: 600px) {
@@ -135,8 +135,8 @@ h1 {
   </div>
 
   <button class="cta-btn" onclick="PMPI.open()">
-    Free Access to the Comeback Program
-    <small>Plus loads of exclusive bonuses!</small>
+    Access a free resource
+    <small>To help your weakest pillar</small>
   </button>
 
 </div>
