@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KARVED | Watch the Video to See If You Qualify</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Norwester';
+  src: url('https://cdn.jsdelivr.net/gh/AugustRush/font@master/Norwester-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --bg: #0A0D17;
+  --bg-soft: #11152400;
+  --gold: #C4A44A;
+  --gold-light: #E8D5A3;
+  --text-light: rgba(255,255,255,0.92);
+  --text-mid: rgba(255,255,255,0.55);
+  --border: rgba(255,255,255,0.10);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg);
+  color: var(--text-light);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Norwester', sans-serif;
+  font-size: 22px; letter-spacing: 4px;
+  text-transform: uppercase; color: #FFFFFF;
+  text-decoration: none; display: inline-block;
+  margin-bottom: 28px;
+}
+
+/* Badge pill */
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 10px 22px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 36px;
+}
+.badge::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0;
+}
+
+/* Headline */
+h1 {
+  font-family: 'Norwester', sans-serif;
+  font-weight: normal;
+  font-size: clamp(34px, 6vw, 58px);
+  line-height: 1.04;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 36px;
+}
+
+/* Step bars */
+.step-bar {
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3);
+  color: #0A0D17;
+  font-weight: 700; font-size: 14px;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 14px 20px;
+  border-radius: 10px 10px 0 0;
+  max-width: 520px; margin: 0 auto;
+}
+
+/* VSL video — vertical 9:16 */
+.vsl-video {
+  position: relative;
+  width: 100%; max-width: 520px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  background: #05070D;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+.vsl-video iframe,
+.vsl-video > div,
+.vsl-video video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+/* Placeholder shown until you paste the real embed */
+.vsl-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 14px; text-align: center; padding: 24px;
+  color: var(--text-mid);
+}
+.vsl-placeholder .play {
+  width: 76px; height: 76px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  display: flex; align-items: center; justify-content: center;
+}
+.vsl-placeholder .play::after {
+  content: ''; width: 0; height: 0;
+  border-left: 22px solid rgba(255,255,255,0.7);
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  margin-left: 6px;
+}
+.vsl-placeholder small { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; max-width: 280px; }
+
+/* Step 2 */
+.step2 {
+  margin-top: 40px; font-size: 17px; font-weight: 600;
+  color: var(--text-light); line-height: 1.5;
+}
+
+/* Apply button */
+.apply-btn {
+  display: inline-block; margin-top: 22px;
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3);
+  color: #0A0D17;
+  font-family: 'Norwester', sans-serif;
+  font-size: 26px; letter-spacing: 1.5px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 20px 72px; border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 40px rgba(196,164,74,0.25);
+}
+.apply-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 50px rgba(196,164,74,0.4); }
+
+.subnote { margin-top: 18px; font-size: 13px; color: var(--text-mid); }
+
+@media (max-width: 600px) {
+  .apply-btn { font-size: 22px; padding: 18px 0; width: 100%; max-width: 520px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a href="/" class="logo">KARVED</a>
+
+  <div class="badge">How guys stay lean &amp; energised with our system</div>
+
+  <h1>Steal the 5 phase system former athletes use to reignite their strength and confidence</h1>
+
+  <div class="step-bar">Step 1: Watch full video to see if you qualify</div>
+
+  <div class="vsl-video">
+    <!-- ============================================================
+         PASTE YOUR VSL EMBED HERE (Vidalytics or YouTube).
+         Delete the .vsl-placeholder div below once you paste it.
+
+         YouTube example:
+         <iframe src="https://www.youtube.com/embed/VIDEO_ID" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+         Vidalytics: paste the embed <div> + <script> they give you.
+         ============================================================ -->
+    <div class="vsl-placeholder">
+      <div class="play"></div>
+      <small>VSL video goes here — paste Vidalytics or YouTube embed</small>
+    </div>
+  </div>
+
+  <p class="step2">Step 2: Click below to start your quick 1-1 coaching application. &#128071;</p>
+
+  <!-- APPLY: point this at your HL calendar booking link (recommended) or Calendly -->
+  <a href="#APPLY_LINK_HERE" class="apply-btn">Apply Now</a>
+
+  <p class="subnote">20-minute call. No obligation. Spots are limited.</p>
+
+</div>
+
+</body>
+</html>
