@@ -88,49 +88,19 @@ h1 {
   letter-spacing: 1px; text-transform: uppercase;
   padding: 14px 20px;
   border-radius: 10px 10px 0 0;
-  max-width: 520px; margin: 0 auto;
+  max-width: 680px; margin: 0 auto;
 }
 
-/* VSL video — vertical 9:16 */
+/* VSL video (Vidalytics responsive embed) */
 .vsl-video {
-  position: relative;
-  width: 100%; max-width: 520px;
+  width: 100%; max-width: 680px;
   margin: 0 auto;
-  aspect-ratio: 9 / 16;
   background: #05070D;
   border: 1px solid var(--border);
   border-top: none;
   border-radius: 0 0 10px 10px;
   overflow: hidden;
 }
-.vsl-video iframe,
-.vsl-video > div,
-.vsl-video video {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  border: none;
-}
-/* Placeholder shown until you paste the real embed */
-.vsl-placeholder {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 14px; text-align: center; padding: 24px;
-  color: var(--text-mid);
-}
-.vsl-placeholder .play {
-  width: 76px; height: 76px; border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.4);
-  display: flex; align-items: center; justify-content: center;
-}
-.vsl-placeholder .play::after {
-  content: ''; width: 0; height: 0;
-  border-left: 22px solid rgba(255,255,255,0.7);
-  border-top: 13px solid transparent;
-  border-bottom: 13px solid transparent;
-  margin-left: 6px;
-}
-.vsl-placeholder small { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; max-width: 280px; }
 
 /* Step 2 */
 .step2 {
@@ -172,25 +142,23 @@ h1 {
   <div class="step-bar">Step 1: Watch full video to see if you qualify</div>
 
   <div class="vsl-video">
-    <!-- ============================================================
-         PASTE YOUR VSL EMBED HERE (Vidalytics or YouTube).
-         Delete the .vsl-placeholder div below once you paste it.
-
-         YouTube example:
-         <iframe src="https://www.youtube.com/embed/VIDEO_ID" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-         Vidalytics: paste the embed <div> + <script> they give you.
-         ============================================================ -->
-    <div class="vsl-placeholder">
-      <div class="play"></div>
-      <small>VSL video goes here — paste Vidalytics or YouTube embed</small>
-    </div>
+    <div id="vidalytics_embed_pdu0SEOUu2mmfX7K" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+    <script type="text/javascript">
+    (function (v, i, d, a, l, y, t, c, s) {
+        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+        if (!vsl){vsl=function(u,cb){
+            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+            i.getElementsByTagName("head")[0].appendChild(s);
+        };}
+        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+    })(window, document, 'Vidalytics', 'vidalytics_embed_pdu0SEOUu2mmfX7K', 'https://fast.vidalytics.com/embeds/ZaJT0Bzk/pdu0SEOUu2mmfX7K/');
+    </script>
   </div>
 
   <p class="step2">Step 2: Click below to start your quick 1-1 coaching application. &#128071;</p>
 
-  <!-- APPLY: point this at your HL calendar booking link (recommended) or Calendly -->
-  <a href="#APPLY_LINK_HERE" class="apply-btn">Apply Now</a>
+  <a href="https://calendly.com/karvedhq/karved-strategy-call" class="apply-btn">Apply Now</a>
 
   <p class="subnote">20-minute call. No obligation. Spots are limited.</p>
 
