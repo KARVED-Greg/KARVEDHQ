@@ -93,6 +93,23 @@ h1 {
   border-bottom: 16px solid transparent;
   margin-left: 7px;
 }
+.party-banner {
+  position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+  z-index: 6; max-width: 92%; text-align: center;
+  background: linear-gradient(135deg, #C4A44A, #E8D5A3);
+  color: #0A0D17;
+  font-family: 'Astrid Grotesk', 'Norwester', sans-serif;
+  font-size: clamp(16px, 3.6vw, 32px); line-height: 1.1;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  padding: 10px 22px; border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  animation: party-flash 0.9s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes party-flash {
+  0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+  50% { opacity: 0.3; transform: translateX(-50%) scale(0.97); }
+}
 
 /* CTA button */
 .cta-btn {
@@ -136,6 +153,7 @@ h1 {
 
   <div class="collage" onclick="PMPI.open()">
     <img src="collage.jpg" alt="KARVED client transformations">
+    <div class="party-banner">Hey Mum and Elise, welcome to the party</div>
     <div class="play"></div>
   </div>
 
