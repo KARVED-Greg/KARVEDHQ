@@ -4,6 +4,12 @@
    Brand vars + button styles are scoped to .pmpi-modal so they
    never collide with the host page's own CSS.
    ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: 'Norwester';
+  src: url('https://cdn.jsdelivr.net/gh/AugustRush/font@master/Norwester-Regular.otf') format('opentype');
+  font-weight: normal; font-style: normal; font-display: swap;
+}
 
 .pmpi-modal {
   /* scoped brand tokens (the quiz card is always light, regardless of page theme) */
