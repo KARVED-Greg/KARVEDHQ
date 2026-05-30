@@ -138,7 +138,14 @@ h1 {
   .banner { white-space: normal; }
 }
 @media (max-width: 600px) {
-  .banner { font-size: 10.5px; padding: 10px 16px; }
+  .wrap { padding: 16px 16px 50px; }
+  .logo { margin-bottom: 4px; }
+  .logo img { height: 44px; }
+  .banner { font-size: 10.5px; padding: 8px 14px; }
+  .step-bar { font-size: 11.5px; padding: 9px 14px; letter-spacing: 0.4px; white-space: nowrap; overflow: hidden; }
+  .step2 { font-size: 12.5px; margin-bottom: 8px; white-space: nowrap; overflow: hidden; }
+  .cta-btn { font-size: 22px; padding: 10px 14px; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; }
+  .cta-btn small { font-size: 9.5px; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; }
   .collage .play { width: 68px; height: 68px; }
   .collage .play::after { border-left-width: 20px; border-top-width: 12px; border-bottom-width: 12px; }
 }
@@ -163,7 +170,7 @@ h1 {
   <p class="step2">Step 2: Click below to take the peak performance quiz. &#128071;</p>
 
   <button class="cta-btn" onclick="PMPI.open()">
-    KARVED performance standards quiz
+    Performance standards quiz
     <small>(I'll send you something to help fix your weakest pillar)</small>
   </button>
 
