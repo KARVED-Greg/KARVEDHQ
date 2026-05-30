@@ -30,15 +30,15 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.5; min-height: 100vh;
 }
-.wrap { max-width: 900px; margin: 0 auto; padding: 24px 20px 80px; text-align: center; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 14px 20px 70px; text-align: center; }
 
-.logo { display: inline-block; margin-bottom: 14px; }
+.logo { display: inline-block; margin-bottom: 8px; }
 .logo img { height: 50px; width: auto; max-width: 80vw; display: block; }
 
 /* CONGRATULATIONS! */
 .congrats-title {
   font-family: 'Astrid Grotesk', sans-serif; font-weight: normal;
-  font-size: clamp(52px, 12vw, 122px);
+  font-size: clamp(48px, 10.5vw, 104px);
   line-height: 0.95;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -47,7 +47,7 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
   filter: drop-shadow(0 6px 24px rgba(124,58,237,0.35));
 }
 
@@ -57,8 +57,8 @@ body {
   background: rgba(15,18,33,0.85);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 18px 32px;
-  margin-bottom: 44px;
+  padding: 16px 28px;
+  margin-bottom: 22px;
   font-size: clamp(15px, 2.2vw, 22px);
   font-weight: 600;
   color: #FFFFFF;
@@ -68,23 +68,31 @@ body {
 }
 .confirmed-badge strong { color: var(--purple); font-weight: 700; }
 
-/* Important Next Steps */
+/* Card wrapping Important Next Steps title + sub */
+.next-steps-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.015) 100%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 22px 20px;
+  max-width: 880px;
+  margin: 0 auto 14px;
+}
 .next-steps-title {
   font-family: 'Astrid Grotesk', sans-serif; font-weight: normal;
-  font-size: clamp(30px, 5.2vw, 48px);
+  font-size: clamp(28px, 5vw, 44px);
   line-height: 1;
   text-transform: uppercase;
   color: #FFFFFF;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
   letter-spacing: 0.5px;
 }
 .next-steps-sub {
-  font-size: clamp(16px, 2.4vw, 23px);
+  font-size: clamp(15px, 2.3vw, 22px);
   font-weight: 500;
   color: var(--text-light);
-  margin-bottom: 32px;
+  margin: 0 auto;
   line-height: 1.35;
-  max-width: 740px; margin-left: auto; margin-right: auto;
+  max-width: 740px;
 }
 
 /* Video container */
@@ -125,7 +133,7 @@ body {
   margin: 14px 0;
 }
 
-/* FAQ accordion */
+/* FAQ accordion (with embedded YouTube videos) */
 .faq-list { margin: 6px 0 4px; }
 .faq-item { margin-bottom: 8px; }
 .faq-toggle {
@@ -147,20 +155,29 @@ body {
   border-radius: 8px 8px 0 0;
 }
 .faq-answer {
-  padding: 14px 18px;
+  padding: 14px 14px 12px;
   background: rgba(255,255,255,0.02);
   border: 1px solid var(--border);
   border-radius: 0 0 8px 8px;
   border-top: none;
   margin-top: -1px;
 }
-.faq-answer p {
-  font-size: 14px; line-height: 1.65; color: var(--text-light);
+.faq-video {
+  position: relative;
+  width: 100%; padding-top: 56.25%; /* 16:9 */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.faq-video iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: none;
 }
 
 /* Results section */
 .results-section {
-  margin: 44px auto 0; max-width: 720px;
+  margin: 44px auto 0; max-width: 880px;
 }
 .results-heading {
   font-family: 'Astrid Grotesk', sans-serif; font-weight: normal;
@@ -179,18 +196,19 @@ body {
 }
 .results-grid img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 8px;
   display: block;
 }
 
 @media (max-width: 600px) {
-  .wrap { padding: 18px 16px 50px; }
+  .wrap { padding: 12px 16px 50px; }
   .logo img { height: 42px; }
-  .congrats-title { letter-spacing: 0; margin-bottom: 16px; }
-  .confirmed-badge { padding: 14px 18px; margin-bottom: 28px; }
-  .next-steps-sub { font-size: 15px; }
+  .congrats-title { letter-spacing: 0; margin-bottom: 10px; }
+  .confirmed-badge { padding: 14px 18px; margin-bottom: 16px; }
+  .next-steps-card { padding: 20px 16px 16px; margin-bottom: 12px; }
+  .next-steps-sub { font-size: 14px; }
   .checklist { padding: 22px 18px; }
   .step-item { font-size: 14px; }
   .results-grid { grid-template-columns: repeat(2, 1fr); }
@@ -207,9 +225,10 @@ body {
 
   <div class="confirmed-badge"><strong>Confirmed:</strong> Your Body Transformation Assessment Has Been Booked</div>
 
-  <h2 class="next-steps-title">Important Next Steps:</h2>
-
-  <p class="next-steps-sub">Watch The Short 3 Minute Video &amp; Complete Quick Pre-Call Checklist To Confirm Your Appointment</p>
+  <div class="next-steps-card">
+    <h2 class="next-steps-title">Important Next Steps:</h2>
+    <p class="next-steps-sub">Watch The Short 3 Minute Video &amp; Complete Quick Pre-Call Checklist To Confirm Your Appointment</p>
+  </div>
 
   <div class="video-container">
     <div id="vidalytics_embed_jfaAHLmHa1yNbYIT" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
@@ -245,19 +264,42 @@ body {
       <div class="faq-item">
         <button class="faq-toggle">About Me &#128071;</button>
         <div class="faq-answer" hidden>
-          <p>I'm Greg Lingard, founder of KARVED. After 12 years coaching and 100+ guys through their own transformations, I built the KARVED system to give men back the physique, strength, and energy they thought they'd lost. The same system I used to go from rugby player to physique-focused performer is what we use with every guy in the programme.</p>
+          <div class="faq-video"><iframe src="https://www.youtube.com/embed/65BNjJ8Ukcc" title="About Me" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
         </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-toggle">Difference between a PT and KARVED? &#128071;</button>
+        <button class="faq-toggle">Difference to having a 1-to-1 PT? &#128071;</button>
         <div class="faq-answer" hidden>
-          <p>A PT gives you a workout. KARVED gives you a system. Training, nutrition, recovery, mobility, cognition &mdash; all calibrated to where you are and where you want to be, with weekly check-ins and 1:1 support from one of our expert coaches. It's the difference between getting fitter and actually fixing what's holding you back.</p>
+          <div class="faq-video"><iframe src="https://www.youtube.com/embed/Mkhs-EFYpuE" title="Difference to a 1-to-1 PT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
         </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-toggle">How soon will I see results? &#128071;</button>
+        <button class="faq-toggle">How does the program work? &#128071;</button>
         <div class="faq-answer" hidden>
-          <p>Most guys see real changes inside 2&ndash;3 weeks &mdash; strength up, energy stable, body comp shifting. The average KARVED athlete improves their performance score by 18 points within the first 90 days. The fastest results come from attacking the weakest pillar first, which is what we'll map on your call.</p>
+          <div class="faq-video"><iframe src="https://www.youtube.com/embed/TwUKgmHNdyc" title="How does the program work" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-toggle">How fast can you expect results? &#128071;</button>
+        <div class="faq-answer" hidden>
+          <div class="faq-video"><iframe src="https://www.youtube.com/embed/gJAtcy9b56U" title="How fast can you expect results" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-toggle">Time commitment &#128071;</button>
+        <div class="faq-answer" hidden>
+          <div class="faq-video"><iframe src="https://www.youtube.com/embed/Fdk7OPsF6ig" title="Time commitment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-toggle">KARVED Guarantee &#128071;</button>
+        <div class="faq-answer" hidden>
+          <div class="faq-video"><iframe src="https://www.youtube.com/embed/D7KsDn0G5F0" title="KARVED Guarantee" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
         </div>
       </div>
     </div>
@@ -274,6 +316,11 @@ body {
   <div class="results-section">
     <h2 class="results-heading">Check out some of the results from KARVED members</h2>
     <div class="results-grid">
+      <img src="cam.png" alt="Cam — +3kg" loading="lazy">
+      <img src="marshall.png" alt="Marshall — -11kg in 10 weeks" loading="lazy">
+      <img src="lachie.png" alt="Lachie — same weight, full recomp" loading="lazy">
+      <img src="bailey.png" alt="Bailey — 8 weeks" loading="lazy">
+      <img src="kristian.png" alt="Kristian — -8.7kg" loading="lazy">
       <img src="transform 1.1.jpeg" alt="KARVED member transformation" loading="lazy">
       <img src="Transform 2.2.jpeg" alt="KARVED member transformation" loading="lazy">
       <img src="Transform 3.3.jpeg" alt="KARVED member transformation" loading="lazy">
