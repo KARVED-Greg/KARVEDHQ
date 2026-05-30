@@ -158,15 +158,21 @@ h1 {
   <div class="step-bar">Step 1: Watch full video to see if you qualify</div>
 
   <div class="vsl-video" id="vsl-video">
-    <!-- ============================================================
-         PASTE GREG'S VSL EMBED HERE (Vidalytics or YouTube).
-         Replace the .vsl-placeholder div below with the embed code.
-         The Calendly popup will fire 5 seconds after a click on this container.
-         ============================================================ -->
-    <div class="vsl-placeholder">
-      <div class="play"></div>
-      <small>VSL video goes here</small>
-    </div>
+    <div id="vidalytics_embed_pdu0SEOUu2mmfX7K" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+    <script type="text/javascript">
+    (function (v, i, d, a, l, y, t, c, s) {
+        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+        if (!vsl){vsl=function(u,cb){
+            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+            i.getElementsByTagName("head")[0].appendChild(s);
+        };}
+        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+    })(window, document, 'Vidalytics', 'vidalytics_embed_pdu0SEOUu2mmfX7K', 'https://fast.vidalytics.com/embeds/ZaJT0Bzk/pdu0SEOUu2mmfX7K/');
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"VideoObject","name":"","description":"","thumbnailUrl":"https://fast.vidalytics.com/video/ZaJT0Bzk/ZpOqiGDcMU0eN4j_/238545/221436__FFMPEG/thumb/thumbnail-5_0.jpg","uploadDate":"2025-12-29","duration":"PT618S","embedUrl":"https://preview.vidalytics.com/embeds/ZaJT0Bzk/ZpOqiGDcMU0eN4j_/"}
+    </script>
   </div>
 
   <p class="step2">Step 2: Click below to start your quick 1-1 coaching application. &#128071;</p>
@@ -197,13 +203,25 @@ h1 {
   // Calendly popup fires 5 seconds after the user clicks the video
   var videoEl = document.getElementById('vsl-video');
   var fivesecTriggered = false;
-  if (videoEl) {
-    videoEl.addEventListener('click', function () {
-      if (fivesecTriggered) return;
-      fivesecTriggered = true;
-      setTimeout(openCalendly, 5000);
-    });
+  function startFiveSecTimer() {
+    if (fivesecTriggered) return;
+    fivesecTriggered = true;
+    setTimeout(openCalendly, 5000);
   }
+  if (videoEl) {
+    // Direct click on the container (fires if click reaches us before the iframe captures it)
+    videoEl.addEventListener('click', startFiveSecTimer);
+  }
+  // Iframe focus detection — fires the instant the user clicks into the Vidalytics iframe
+  // (clicks inside a cross-origin iframe don't bubble, so we detect the focus change instead)
+  window.addEventListener('blur', function () {
+    setTimeout(function () {
+      var ae = document.activeElement;
+      if (ae && ae.tagName === 'IFRAME' && videoEl && videoEl.contains(ae)) {
+        startFiveSecTimer();
+      }
+    }, 0);
+  });
 
   // Apply Now button opens Calendly popup immediately
   var applyBtn = document.getElementById('apply-btn');
