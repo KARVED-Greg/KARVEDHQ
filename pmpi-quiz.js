@@ -20,6 +20,7 @@
   var WEBHOOK    = CONFIG.webhookUrl || '';
   var REDIRECT   = CONFIG.redirectUrl || null;
   var AUTO_OPEN  = CONFIG.autoOpen || false;
+  var DISMISS_URL = CONFIG.dismissUrl || null;
   var LOGO       = CONFIG.logoSrc || 'karved-logo.png';
   var INTRO      = CONFIG.intro || {};
   var FORM_INTRO = CONFIG.formIntro || 'Get the full 23-page audit (24 benchmarks across all 6 pillars) and your personalised 90-day plan in your inbox.';
@@ -91,7 +92,7 @@
           '<h2 class="pmpi-title">' + intro_title + '</h2>' +
           '<p class="pmpi-lead">' + intro_lead + '</p>' +
           '<button class="btn btn-gold btn-arrow" onclick="PMPI.start()">' + intro_start + '</button>' +
-          '<button class="pmpi-dismiss" onclick="PMPI.close()">Maybe later</button>' +
+          '<button class="pmpi-dismiss" onclick="PMPI.dismiss()">Maybe later</button>' +
         '</div>' +
         '<div class="pmpi-screen" data-screen="quiz">' +
           '<div class="pmpi-progress"><div class="pmpi-progress-bar" id="pmpi-progress-bar"></div></div>' +
@@ -155,6 +156,10 @@
     $('#pmpi-modal').setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+  }
+  function dismiss() {
+    if (DISMISS_URL) { window.location.href = DISMISS_URL; return; }
+    closeModal();
   }
   function start() {
     state.step = 0;
@@ -287,6 +292,7 @@
   window.PMPI = {
     open: function () { showScreen('intro'); openModal(); },
     close: closeModal,
+    dismiss: dismiss,
     start: start,
     next: next,
     back: back,
