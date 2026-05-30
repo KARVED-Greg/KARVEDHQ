@@ -1047,7 +1047,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
       </div>
       <div class="programme-included-item">
         <span class="programme-included-check">&#10003;</span>
-        <span>1:1 coaching with Greg</span>
+        <span>1:1 support with one of our expert coaches</span>
       </div>
       <div class="programme-included-item">
         <span class="programme-included-check">&#10003;</span>
@@ -1310,7 +1310,7 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q">How is KARVED different from other coaches?</button>
-        <div class="faq-a">1:1 coaching with Greg, not a single point of failure, not an app. Every protocol is custom, adjusted weekly, and backed by 12 years of in-the-trenches experience across 100+ men.</div>
+        <div class="faq-a">1:1 support with one of our expert coaches, not a single point of failure, not an app. Every protocol is custom, adjusted weekly, and backed by 12 years of in-the-trenches experience across 100+ men.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q">What does it cost?</button>
@@ -1382,10 +1382,10 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
     <!-- Intro screen -->
     <div class="pmpi-screen" data-screen="intro">
       <div class="pmpi-mark"><img src="karved-logo.png" alt="KARVED" loading="eager"></div>
-      <div class="pmpi-eyebrow">Performance Quiz</div>
-      <h2 class="pmpi-title">Where do you actually stand?</h2>
-      <p class="pmpi-lead">The 6-pillar audit. One score out of 100. Two minutes. Find out which pillar is dragging you down, and exactly what to fix first.</p>
-      <button class="btn btn-gold btn-arrow" onclick="PMPI.start()">Start the Assessment</button>
+      <div class="pmpi-eyebrow">Free Performance Quiz</div>
+      <h2 class="pmpi-title">Complete your 2-minute performance quiz</h2>
+      <p class="pmpi-lead">Answer 6 quick questions to see how you compare to the KARVED athlete standards. (I'll send a free resource to help)</p>
+      <button class="btn btn-gold btn-arrow" onclick="PMPI.start()">Start the Quiz</button>
       <button class="pmpi-dismiss" onclick="PMPI.close()">Maybe later</button>
     </div>
 
@@ -1411,14 +1411,14 @@ h2 { font-size: clamp(32px, 4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
       <p class="pmpi-tier-desc" id="pmpi-tier-desc"></p>
       <div class="pmpi-divider"></div>
       <div class="pmpi-compare" id="pmpi-compare" hidden></div>
+      <div class="pmpi-compare pmpi-average">The average KARVED athlete improves their score by <strong>18 points</strong> within the first 90 days.</div>
       <div class="pmpi-weakest-label">Fix this first</div>
       <div class="pmpi-weakest" id="pmpi-weakest"></div>
       <form class="pmpi-form" id="pmpi-form" onsubmit="return PMPI.submit(event)">
-        <p class="pmpi-form-intro">Get the full 23-page audit (24 benchmarks across all 6 pillars) and your personalised 90-day plan in your inbox.</p>
+        <p class="pmpi-form-intro">Enter your details to get your score and free resource.</p>
         <input type="text" name="firstName" placeholder="First name" required autocomplete="given-name">
         <input type="email" name="email" placeholder="Your email" required autocomplete="email">
-        <button type="submit" class="btn btn-gold btn-arrow">Send Me the Full Audit</button>
-        <p class="pmpi-form-note">No spam. The PDF and a note from Greg.</p>
+        <button type="submit" class="btn btn-gold btn-arrow">Get My Free Resource</button>
       </form>
     </div>
 
