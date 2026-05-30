@@ -29,7 +29,7 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.5; min-height: 100vh;
 }
-.wrap { max-width: 940px; margin: 0 auto; padding: 30px 20px 70px; text-align: center; }
+.wrap { max-width: 820px; margin: 0 auto; padding: 30px 20px 70px; text-align: center; }
 
 .logo { display: inline-block; margin-bottom: 7px; }
 .logo img { height: 56px; width: auto; max-width: 82vw; display: block; }
@@ -57,7 +57,7 @@ h1 {
   font-family: 'Astrid Grotesk', 'Norwester', sans-serif; font-weight: normal;
   font-size: clamp(32px, 6vw, 56px); line-height: 1;
   letter-spacing: 0; text-transform: uppercase; text-wrap: balance;
-  color: #FFFFFF; margin-bottom: 14px;
+  color: #FFFFFF; margin-bottom: 8px;
 }
 
 /* Step 1 gold bar */
@@ -75,7 +75,7 @@ h1 {
 .vsl-video {
   position: relative;
   width: 100%; max-width: 820px;
-  margin: 0 auto;
+  margin: 0 auto 8px;
   background: #05070D;
   border: 1px solid var(--border);
   border-top: none;
@@ -114,34 +114,33 @@ h1 {
 
 /* Step 2 */
 .step2 {
-  margin-top: 32px; font-size: 17px; font-weight: 600;
+  margin-top: 0; margin-bottom: 12px;
+  font-size: 17px; font-weight: 600;
   color: var(--text-light); line-height: 1.5;
 }
 
-/* Apply button */
+/* Apply button (matches /learn .cta-btn) */
 .apply-btn {
-  display: inline-block; margin-top: 18px;
+  display: block; width: 100%; max-width: 700px;
+  margin: 0 auto;
   background: linear-gradient(135deg, #C4A44A, #E8D5A3);
-  color: #0A0D17; border: none; cursor: pointer;
+  color: #000000; border: none; cursor: pointer;
+  border-radius: 12px; padding: 12px 28px;
   font-family: 'Astrid Grotesk', 'Norwester', sans-serif;
-  font-size: clamp(28px, 4.4vw, 40px); letter-spacing: 1px;
-  text-transform: uppercase; text-decoration: none; line-height: 1.05;
-  padding: 16px 64px; border-radius: 12px;
+  font-size: clamp(24px, 4vw, 36px); letter-spacing: 0.5px;
+  text-transform: uppercase; line-height: 1.05; text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 10px 40px rgba(196,164,74,0.25);
+  box-shadow: 0 10px 40px rgba(196,164,74,0.22);
 }
-.apply-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 50px rgba(196,164,74,0.4); }
+.apply-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 50px rgba(196,164,74,0.38); }
 
-.subnote { margin-top: 16px; font-size: 13px; color: var(--text-mid); }
+.subnote { margin-top: 14px; font-size: 13px; color: var(--text-mid); }
 
 @media (max-width: 720px) {
   .banner { white-space: normal; }
 }
 @media (max-width: 600px) {
   .banner { font-size: 10.5px; padding: 10px 16px; }
-  .apply-btn { font-size: 24px; padding: 16px 0; width: 100%; max-width: 520px; }
-  .vsl-placeholder .play { width: 72px; height: 72px; }
-  .vsl-placeholder .play::after { border-left-width: 22px; border-top-width: 13px; border-bottom-width: 13px; }
 }
 </style>
 </head>
@@ -151,7 +150,7 @@ h1 {
 
   <a href="/" class="logo"><img src="karved-wordmark.png" alt="KARVED"></a>
 
-  <div class="banner">How guys stay lean &amp; energised with our system</div>
+  <div class="banner">Learn how 100+ guys have transformed with the KARVED system</div>
 
   <h1>Steal the 5 phase system former athletes use to reignite their strength and confidence</h1>
 
