@@ -47,18 +47,20 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  margin-bottom: 14px;
+  margin-bottom: 0;
   filter: drop-shadow(0 6px 24px rgba(124,58,237,0.35));
 }
 
-/* Confirmed badge */
+/* Confirmed badge (pulled up to overlap bottom of CONGRATULATIONS) */
 .confirmed-badge {
   display: inline-block;
-  background: rgba(15,18,33,0.85);
+  position: relative; z-index: 2;
+  background: rgba(15,18,33,0.92);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 16px 28px;
-  margin-bottom: 22px;
+  padding: 14px 28px;
+  margin-top: -28px;
+  margin-bottom: 18px;
   font-size: clamp(15px, 2.2vw, 22px);
   font-weight: 600;
   color: #FFFFFF;
@@ -73,9 +75,9 @@ body {
   background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.015) 100%);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 24px 22px 20px;
+  padding: 20px 22px 18px;
   max-width: 880px;
-  margin: 0 auto 14px;
+  margin: 0 auto 10px;
 }
 .next-steps-title {
   font-family: 'Astrid Grotesk', sans-serif; font-weight: normal;
@@ -109,7 +111,7 @@ body {
 
 /* Checklist */
 .checklist {
-  margin: 36px auto 0; max-width: 720px;
+  margin: 22px auto 0; max-width: 720px;
   text-align: left;
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--border);
@@ -177,7 +179,7 @@ body {
 
 /* Results section */
 .results-section {
-  margin: 44px auto 0; max-width: 880px;
+  margin: 30px auto 0; max-width: 880px;
 }
 .results-heading {
   font-family: 'Astrid Grotesk', sans-serif; font-weight: normal;
@@ -221,7 +223,7 @@ body {
 
   <a href="/" class="logo"><img src="karved-wordmark.png" alt="KARVED"></a>
 
-  <h1 class="congrats-title">Congratulations!</h1>
+  <h1 class="congrats-title">Congratulations</h1>
 
   <div class="confirmed-badge"><strong>Confirmed:</strong> Your Body Transformation Assessment Has Been Booked</div>
 
@@ -308,7 +310,7 @@ body {
 
     <div class="step-block">
       <span class="step-num">3/3</span>
-      <div class="step-item">&#9989; Show up to the call ready to talk about your 90-day plan</div>
+      <div class="step-item">&#9989; Show up to the call in a quiet location, ready to discuss your transformation strategy</div>
     </div>
   </div>
 
