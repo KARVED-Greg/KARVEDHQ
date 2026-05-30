@@ -22,6 +22,7 @@
   var AUTO_OPEN  = CONFIG.autoOpen || false;
   var DISMISS_URL = CONFIG.dismissUrl || null;
   var LOGO       = CONFIG.logoSrc || 'karved-logo.png';
+  var FORM_NOTE  = CONFIG.formNote || '';
   var INTRO      = CONFIG.intro || {};
   var FORM_INTRO = CONFIG.formIntro || 'Get the full 23-page audit (24 benchmarks across all 6 pillars) and your personalised 90-day plan in your inbox.';
 
@@ -113,6 +114,7 @@
           '<p class="pmpi-tier-desc" id="pmpi-tier-desc"></p>' +
           '<div class="pmpi-divider"></div>' +
           '<div class="pmpi-compare" id="pmpi-compare" hidden></div>' +
+          '<div class="pmpi-compare pmpi-average">The average KARVED athlete improves their score by <strong>18 points</strong> within the first 90 days.</div>' +
           '<div class="pmpi-weakest-label">Fix this first</div>' +
           '<div class="pmpi-weakest" id="pmpi-weakest"></div>' +
           '<form class="pmpi-form" id="pmpi-form" onsubmit="return PMPI.submit(event)">' +
@@ -120,7 +122,7 @@
             '<input type="text" name="firstName" placeholder="First name" required autocomplete="given-name">' +
             '<input type="email" name="email" placeholder="Your email" required autocomplete="email">' +
             '<button type="submit" class="btn btn-gold btn-arrow">Get My Free Resource</button>' +
-            '<p class="pmpi-form-note">No spam. Your results and a free resource.</p>' +
+            (FORM_NOTE ? '<p class="pmpi-form-note">' + FORM_NOTE + '</p>' : '') +
           '</form>' +
         '</div>' +
         '<div class="pmpi-screen" data-screen="thanks">' +
