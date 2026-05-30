@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KARVED | Booking Confirmed</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Astrid Grotesk';
+  src: url('astrid-grotesk-hv-cn.ttf') format('truetype');
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+:root {
+  --bg: #0A0D17;
+  --purple: #A78BFA;
+  --purple-light: #DDD6FE;
+  --purple-mid: #8B5CF6;
+  --purple-deep: #7C3AED;
+  --text-light: rgba(255,255,255,0.94);
+  --text-mid: rgba(255,255,255,0.55);
+  --border: rgba(255,255,255,0.10);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg);
+  color: var(--text-light);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5; min-height: 100vh;
+}
+.wrap { max-width: 900px; margin: 0 auto; padding: 24px 20px 80px; text-align: center; }
+
+.logo { display: inline-block; margin-bottom: 14px; }
+.logo img { height: 50px; width: auto; max-width: 80vw; display: block; }
+
+/* CONGRATULATIONS! */
+.congrats-title {
+  font-family: 'Astrid Grotesk', sans-serif; font-weight: normal;
+  font-size: clamp(52px, 12vw, 122px);
+  line-height: 0.95;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, var(--purple-light) 0%, var(--purple) 50%, var(--purple-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 22px;
+  filter: drop-shadow(0 6px 24px rgba(124,58,237,0.35));
+}
+
+/* Confirmed badge */
+.confirmed-badge {
+  display: inline-block;
+  background: rgba(15,18,33,0.85);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 32px;
+  margin-bottom: 44px;
+  font-size: clamp(15px, 2.2vw, 22px);
+  font-weight: 600;
+  color: #FFFFFF;
+  max-width: 90vw;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+  line-height: 1.4;
+}
+.confirmed-badge strong { color: var(--purple); font-weight: 700; }
+
+/* Important Next Steps */
+.next-steps-title {
+  font-family: 'Astrid Grotesk', sans-serif; font-weight: normal;
+  font-size: clamp(30px, 5.2vw, 48px);
+  line-height: 1;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+.next-steps-sub {
+  font-size: clamp(16px, 2.4vw, 23px);
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 32px;
+  line-height: 1.35;
+  max-width: 740px; margin-left: auto; margin-right: auto;
+}
+
+/* Video container */
+.video-container {
+  position: relative;
+  width: 100%; max-width: 820px;
+  margin: 0 auto;
+  background: #05070D;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 14px 50px rgba(0,0,0,0.45);
+}
+
+/* Checklist */
+.checklist {
+  margin: 36px auto 0; max-width: 720px;
+  text-align: left;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 30px;
+}
+.step-block { margin-bottom: 14px; }
+.step-num {
+  display: block;
+  color: var(--text-light);
+  font-size: 15px; font-weight: 700;
+  margin-bottom: 10px;
+}
+.step-item {
+  font-size: 15px; line-height: 1.55;
+  color: var(--text-light); margin-bottom: 6px;
+}
+.step-item .muted { color: var(--text-mid); }
+.divider {
+  height: 1px; background: var(--border);
+  margin: 14px 0;
+}
+
+/* FAQ accordion */
+.faq-list { margin: 6px 0 4px; }
+.faq-item { margin-bottom: 8px; }
+.faq-toggle {
+  display: block; width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 18px;
+  color: #FFFFFF;
+  font-family: inherit; font-size: 14px; font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.faq-toggle:hover { background: rgba(255,255,255,0.1); }
+.faq-toggle.open {
+  background: rgba(167,139,250,0.16);
+  border-color: rgba(167,139,250,0.45);
+  border-radius: 8px 8px 0 0;
+}
+.faq-answer {
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+  margin-top: -1px;
+}
+.faq-answer p {
+  font-size: 14px; line-height: 1.65; color: var(--text-light);
+}
+
+/* Results section */
+.results-section {
+  margin: 44px auto 0; max-width: 720px;
+}
+.results-heading {
+  font-family: 'Astrid Grotesk', sans-serif; font-weight: normal;
+  font-size: clamp(16px, 2.6vw, 22px);
+  text-transform: uppercase; color: #FFFFFF;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.results-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .wrap { padding: 18px 16px 50px; }
+  .logo img { height: 42px; }
+  .congrats-title { letter-spacing: 0; margin-bottom: 16px; }
+  .confirmed-badge { padding: 14px 18px; margin-bottom: 28px; }
+  .next-steps-sub { font-size: 15px; }
+  .checklist { padding: 22px 18px; }
+  .step-item { font-size: 14px; }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a href="/" class="logo"><img src="karved-wordmark.png" alt="KARVED"></a>
+
+  <h1 class="congrats-title">Congratulations!</h1>
+
+  <div class="confirmed-badge"><strong>Confirmed:</strong> Your Body Transformation Assessment Has Been Booked</div>
+
+  <h2 class="next-steps-title">Important Next Steps:</h2>
+
+  <p class="next-steps-sub">Watch The Short 3 Minute Video &amp; Complete Quick Pre-Call Checklist To Confirm Your Appointment</p>
+
+  <div class="video-container">
+    <div id="vidalytics_embed_jfaAHLmHa1yNbYIT" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+    <script type="text/javascript">
+    (function (v, i, d, a, l, y, t, c, s) {
+        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+        if (!vsl){vsl=function(u,cb){
+            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+            i.getElementsByTagName("head")[0].appendChild(s);
+        };}
+        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+    })(window, document, 'Vidalytics', 'vidalytics_embed_jfaAHLmHa1yNbYIT', 'https://fast.vidalytics.com/embeds/ZaJT0Bzk/jfaAHLmHa1yNbYIT/');
+    </script>
+  </div>
+
+  <!-- Pre-call checklist -->
+  <div class="checklist">
+    <div class="step-block">
+      <span class="step-num">1/3</span>
+      <div class="step-item">&#127916; Please watch this video in full before our call <span class="muted">(important information)</span></div>
+      <div class="step-item">&#128222; Your call will be on Zoom &mdash; the link has been sent via email and text</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="step-block">
+      <span class="step-num">2/3</span>
+      <div class="step-item">&#128196; Review our frequently asked questions</div>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-toggle">About Me &#128071;</button>
+        <div class="faq-answer" hidden>
+          <p>I'm Greg Lingard, founder of KARVED. After 12 years coaching and 100+ guys through their own transformations, I built the KARVED system to give men back the physique, strength, and energy they thought they'd lost. The same system I used to go from rugby player to physique-focused performer is what we use with every guy in the programme.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-toggle">Difference between a PT and KARVED? &#128071;</button>
+        <div class="faq-answer" hidden>
+          <p>A PT gives you a workout. KARVED gives you a system. Training, nutrition, recovery, mobility, cognition &mdash; all calibrated to where you are and where you want to be, with weekly check-ins and 1:1 support from one of our expert coaches. It's the difference between getting fitter and actually fixing what's holding you back.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-toggle">How soon will I see results? &#128071;</button>
+        <div class="faq-answer" hidden>
+          <p>Most guys see real changes inside 2&ndash;3 weeks &mdash; strength up, energy stable, body comp shifting. The average KARVED athlete improves their performance score by 18 points within the first 90 days. The fastest results come from attacking the weakest pillar first, which is what we'll map on your call.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="step-block">
+      <span class="step-num">3/3</span>
+      <div class="step-item">&#9989; Show up to the call ready to talk about your 90-day plan</div>
+    </div>
+  </div>
+
+  <!-- Results section -->
+  <div class="results-section">
+    <h2 class="results-heading">Check out some of the results from KARVED members</h2>
+    <div class="results-grid">
+      <img src="transform 1.1.jpeg" alt="KARVED member transformation" loading="lazy">
+      <img src="Transform 2.2.jpeg" alt="KARVED member transformation" loading="lazy">
+      <img src="Transform 3.3.jpeg" alt="KARVED member transformation" loading="lazy">
+      <img src="Transform 4.4.jpeg" alt="KARVED member transformation" loading="lazy">
+      <img src="Transform 5.5.jpeg" alt="KARVED member transformation" loading="lazy">
+      <img src="Transform 6.6.jpeg" alt="KARVED member transformation" loading="lazy">
+      <img src="Transform 7.7.jpeg" alt="KARVED member transformation" loading="lazy">
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.faq-toggle').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var answer = btn.nextElementSibling;
+    var wasOpen = !answer.hidden;
+    document.querySelectorAll('.faq-answer').forEach(function (a) { a.hidden = true; });
+    document.querySelectorAll('.faq-toggle').forEach(function (b) { b.classList.remove('open'); });
+    if (!wasOpen) {
+      answer.hidden = false;
+      btn.classList.add('open');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
