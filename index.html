@@ -1689,7 +1689,8 @@ if (bookSection && sticky && 'IntersectionObserver' in window) {
       fetch(HIGHLEVEL_WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        keepalive: true
       }).catch(function(err) { console.error('PMPI webhook error:', err); });
     } else {
       console.log('PMPI lead (HighLevel webhook not configured yet):', payload);

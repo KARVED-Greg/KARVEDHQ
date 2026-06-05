@@ -267,7 +267,8 @@
       timestamp: new Date().toISOString()
     };
     if (WEBHOOK) {
-      fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+      // keepalive lets the request survive page navigation (the redirect below would otherwise kill it before it fires)
+      fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), keepalive: true })
         .catch(function (err) { console.error('PMPI webhook error:', err); });
     } else {
       console.log('PMPI lead (no webhook configured):', payload);
