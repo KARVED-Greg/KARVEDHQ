@@ -32,18 +32,19 @@ body {
 
 /* ============ TOP BAR ============ */
 .top {
-  display: flex; align-items: center; justify-content: space-between;
-  padding-bottom: 24px; margin-bottom: 28px;
+  display: flex; align-items: center; justify-content: center;
+  padding-bottom: 20px; margin-bottom: 24px;
   border-bottom: 1px solid var(--border);
 }
-.top a.logo img { height: 40px; width: auto; display: block; }
-.top a.home {
-  color: var(--text-mid); text-decoration: none;
-  font-size: 12px; letter-spacing: 1.5px;
-  text-transform: uppercase; font-weight: 600;
-  transition: color 0.2s ease;
+.top .logo { display: inline-block; line-height: 0; }
+.top .logo img {
+  height: 32px; width: auto;
+  max-width: 60vw;
+  display: block;
 }
-.top a.home:hover { color: var(--gold); }
+@media (max-width: 640px) {
+  .top .logo img { height: 26px; }
+}
 
 /* ============ HERO ============ */
 .hero { text-align: center; margin-bottom: 32px; }
