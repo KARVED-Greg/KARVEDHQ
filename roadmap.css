@@ -426,6 +426,35 @@ h1 {
 }
 .reveal-close strong { color: var(--gold); font-weight: 700; }
 
+/* ============ CTA MESSAGE (Instagram DM) ============ */
+.cta-message {
+  margin: 26px auto 0;
+  max-width: 520px;
+  padding: 22px 26px;
+  background: rgba(196,164,74,0.10);
+  border: 1px solid rgba(196,164,74,0.55);
+  border-radius: 12px;
+  text-align: center;
+}
+.cta-message-label {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.cta-message-body {
+  color: var(--text-light);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.cta-message-body strong {
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
 /* ============ FOOTER ============ */
 footer {
   border-top: 1px solid var(--border);
