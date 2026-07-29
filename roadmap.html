@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KARVED | Cut Roadmap — Get Your Numbers</title>
+<meta name="description" content="Free cut roadmap: personalised calories, macros, and timeline. Same framework we use with KARVED 1:1 clients.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="roadmap.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <a href="/" class="logo"><img src="karved-wordmark.png" alt="KARVED"></a>
+    <a href="/" class="home">← Home</a>
+  </header>
+
+  <!-- ============ INTRO ============ -->
+  <section id="intro" class="hero">
+    <div class="eyebrow">The KARVED Cut Roadmap</div>
+    <h1>Your numbers.<br>Your timeline.<br>In 60 seconds.</h1>
+    <p class="lead">The same maths we run for every 1:1 client — calories, macros, and week-by-week trajectory to your goal weight.</p>
+  </section>
+
+  <!-- ============ FORM ============ -->
+  <section id="form-section" class="card">
+    <form id="roadmap-form" novalidate>
+
+      <div class="row">
+        <div class="field">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" min="16" max="90" placeholder="e.g. 32" required>
+        </div>
+        <div class="field">
+          <label for="sex">Sex</label>
+          <select id="sex" name="sex" required>
+            <option value="">Choose…</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="height">Height <span class="unit">(cm)</span></label>
+          <input type="number" id="height" name="height" min="120" max="230" placeholder="e.g. 180" required>
+        </div>
+        <div class="field">
+          <label for="weight">Current weight <span class="unit">(kg)</span></label>
+          <input type="number" id="weight" name="weight" step="0.1" min="35" max="250" placeholder="e.g. 90" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="activity">Activity level</label>
+        <select id="activity" name="activity" required>
+          <option value="">Choose…</option>
+          <option value="1.2">Sedentary — little to no exercise</option>
+          <option value="1.375">Light — 1–3 sessions per week</option>
+          <option value="1.55">Moderate — 3–5 sessions per week</option>
+          <option value="1.725">Very active — 6–7 sessions per week</option>
+          <option value="1.9">Extreme — hard exercise + physical job</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="goalWeight">Goal weight <span class="unit">(kg)</span></label>
+        <input type="number" id="goalWeight" name="goalWeight" step="0.1" min="35" max="250" placeholder="e.g. 82" required>
+      </div>
+
+      <div class="field">
+        <label for="pace">Pace</label>
+        <select id="pace" name="pace" required>
+          <option value="0.25">Gentle — 0.25 kg per week (sustainable, lifestyle-friendly)</option>
+          <option value="0.5" selected>Sustainable — 0.5 kg per week (recommended)</option>
+          <option value="1">Aggressive — 1.0 kg per week (short-term push)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="cta-btn">Build my roadmap →</button>
+
+      <p class="disclaimer">Numbers are educational only. Not medical advice.</p>
+
+    </form>
+  </section>
+
+  <!-- ============ RESULTS (hidden until submit) ============ -->
+  <section id="results-section" class="hidden">
+
+    <div class="results-header">
+      <div class="eyebrow gold">Your KARVED Roadmap</div>
+      <h2 id="results-headline">Cut to <span id="out-goal-weight">—</span> kg by <span id="out-finish-date">—</span></h2>
+      <p class="lead">Here's what your body needs to hit the target — and what most guys get wrong from here.</p>
+    </div>
+
+    <!-- The 4 headline numbers -->
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-label">BMR</div>
+        <div class="stat-value"><span id="out-bmr">—</span></div>
+        <div class="stat-unit">kcal / day at rest</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">TDEE</div>
+        <div class="stat-value"><span id="out-tdee">—</span></div>
+        <div class="stat-unit">kcal / day maintenance</div>
+      </div>
+      <div class="stat stat-primary">
+        <div class="stat-label">Target</div>
+        <div class="stat-value"><span id="out-target">—</span></div>
+        <div class="stat-unit">kcal / day to cut</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Deficit</div>
+        <div class="stat-value">−<span id="out-deficit">—</span></div>
+        <div class="stat-unit">kcal / day</div>
+      </div>
+    </div>
+
+    <!-- Macros -->
+    <div class="card card-tight">
+      <div class="section-label">Daily Macros — KARVED High-Protein Cut</div>
+      <div class="macros">
+        <div class="macro macro-protein">
+          <div class="macro-name">Protein</div>
+          <div class="macro-grams"><span id="out-protein-g">—</span>g</div>
+          <div class="macro-kcal"><span id="out-protein-kcal">—</span> kcal</div>
+        </div>
+        <div class="macro macro-fat">
+          <div class="macro-name">Fat</div>
+          <div class="macro-grams"><span id="out-fat-g">—</span>g</div>
+          <div class="macro-kcal"><span id="out-fat-kcal">—</span> kcal</div>
+        </div>
+        <div class="macro macro-carbs">
+          <div class="macro-name">Carbs</div>
+          <div class="macro-grams"><span id="out-carbs-g">—</span>g</div>
+          <div class="macro-kcal"><span id="out-carbs-kcal">—</span> kcal</div>
+        </div>
+      </div>
+      <p class="macro-note">Protein set at 2.4 g/kg to protect muscle in a deficit. Fat at 0.5 g/kg for hormonal baseline. Carbs fuel training — everything else fills here.</p>
+    </div>
+
+    <!-- Trajectory chart -->
+    <div class="card card-tight">
+      <div class="section-label">Your Trajectory — <span id="out-weeks-label">—</span> weeks</div>
+      <div id="chart-container"></div>
+      <div class="chart-legend">
+        <div><span class="dot dot-gold"></span> Weekly weight target</div>
+      </div>
+    </div>
+
+    <!-- Milestones -->
+    <div class="card card-tight">
+      <div class="section-label">4 Checkpoints</div>
+      <div id="milestones" class="milestones"></div>
+    </div>
+
+    <!-- ============ THE REVEAL ============ -->
+    <div class="reveal">
+      <div class="reveal-eyebrow">The Bailey Rule</div>
+      <h3>You've got the numbers.<br>Here's what they don't tell you.</h3>
+      <p class="reveal-lead">Bailey dropped 10 kg in 13 weeks — but not because he had a calculator. Every guy who's ever cut has had a calculator. What separated him was the implementation:</p>
+      <ul class="reveal-list">
+        <li>What to do when the scale doesn't move for 10 days straight.</li>
+        <li>How to train hard enough to <em>keep</em> your muscle while the calories drop.</li>
+        <li>How to hit protein on the road, at a work dinner, or after a huge day.</li>
+        <li>When to refeed, when to push through, and when to reverse out.</li>
+        <li>How to survive Friday night without blowing the whole week.</li>
+        <li>How to stay dialled at week 8 when motivation is gone.</li>
+      </ul>
+      <p class="reveal-close"><strong>This is where 90% of guys quit.</strong> Not because the maths was wrong — because they never had someone in their corner to actually execute it.</p>
+      <p class="reveal-close">That's what we do at KARVED. Same framework we ran with Bailey. Same one we'll run with you.</p>
+      <a href="/book" class="cta-btn cta-gold">Book your strategy call →</a>
+      <p class="disclaimer">30-minute call with Greg. No pitch — we map your comeback and give you a clear next step, whether we work together or not.</p>
+    </div>
+
+    <button id="reset-btn" class="cta-secondary">← Recalculate</button>
+
+  </section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 KARVED. <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
+</footer>
+
+<script src="roadmap.js" defer></script>
+</body>
+</html>
