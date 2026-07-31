@@ -1,12 +1,7 @@
 /* ============================================================
    KARVED Cut Roadmap — styles
-   Extends the KARVED brand system (navy + gold, Astrid + Montserrat)
+   Extends the KARVED brand system (navy + gold, Montserrat)
    ============================================================ */
-@font-face {
-  font-family: 'Astrid Grotesk';
-  src: url('astrid-grotesk-hv-cn.ttf') format('truetype');
-  font-weight: normal; font-style: normal; font-display: swap;
-}
 :root {
   --bg: #0A0D17;
   --card: #0D1129;
@@ -56,8 +51,8 @@ body {
 }
 .eyebrow.gold { color: var(--gold); }
 h1 {
-  font-family: 'Astrid Grotesk', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: normal;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
   font-size: clamp(38px, 7vw, 62px);
   line-height: 0.98;
   letter-spacing: 0;
@@ -199,8 +194,8 @@ h1 {
   margin-bottom: 28px;
 }
 .results-header h2 {
-  font-family: 'Astrid Grotesk', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: normal;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
   font-size: clamp(28px, 5vw, 42px);
   line-height: 1.05;
   text-transform: uppercase;
@@ -236,7 +231,7 @@ h1 {
   margin-bottom: 8px;
 }
 .stat-value {
-  font-family: 'Astrid Grotesk', sans-serif;
+  font-family: 'Montserrat', sans-serif; font-weight: 800;
   font-size: 28px;
   color: #FFFFFF;
   line-height: 1;
@@ -272,7 +267,7 @@ h1 {
   margin-bottom: 8px;
 }
 .macro-grams {
-  font-family: 'Astrid Grotesk', sans-serif;
+  font-family: 'Montserrat', sans-serif; font-weight: 800;
   font-size: 30px;
   color: #FFFFFF;
   line-height: 1;
@@ -336,7 +331,7 @@ h1 {
 }
 .milestone-week {
   color: var(--gold);
-  font-family: 'Astrid Grotesk', sans-serif;
+  font-family: 'Montserrat', sans-serif; font-weight: 800;
   font-size: 20px;
 }
 .milestone-date {
@@ -374,7 +369,7 @@ h1 {
   margin-bottom: 14px;
 }
 .reveal h3 {
-  font-family: 'Astrid Grotesk', sans-serif;
+  font-family: 'Montserrat', sans-serif; font-weight: 800;
   font-weight: normal;
   font-size: clamp(24px, 4.5vw, 36px);
   line-height: 1.05;
