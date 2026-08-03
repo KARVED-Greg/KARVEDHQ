@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KARVED Peak Performance Standards | Benchmark Test</title>
+<title>KARVED | The 10 Performance Standards</title>
 
 <!-- ============================================================
      KARVED BENCHMARK SCORER (card-on-dark aesthetic)
@@ -57,26 +57,28 @@
   .card{
     background:var(--cream);
     border-radius:18px;
-    padding:44px 44px 40px;
+    padding:0 44px 40px;
     box-shadow:
       0 30px 80px rgba(0,0,0,0.55),
       0 0 0 1px rgba(196,164,74,0.15);
     position:relative;
     overflow:hidden;
   }
-  .card::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:3px;
-    background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));
-    opacity:0.5;
-  }
 
-  /* KARVED wordmark inside card */
-  .brand{
-    text-align:center;margin-bottom:26px;
+  /* KARVED navy header band with wordmark */
+  .brand-bar{
+    background:var(--navy-deep);
+    margin:0 -44px 36px;
+    padding:22px 22px 20px;
+    text-align:center;
+    position:relative;
   }
-  .brand img{
+  .brand-bar::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent);
+  }
+  .brand-bar img{
     height:34px;width:auto;display:inline-block;
-    filter:brightness(0.55) sepia(1) hue-rotate(15deg) saturate(4);
   }
 
   /* Progress bar (question mode) */
@@ -164,6 +166,65 @@
   .intro-note{
     text-align:center;font-size:11px;color:var(--grey);
     letter-spacing:0.08em;margin-top:14px;
+  }
+
+  /* ============ SETUP SCREEN ============ */
+  .setup-block{margin-bottom:22px;}
+  .setup-label{
+    display:block;font-size:11px;font-weight:700;
+    letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:10px;text-align:center;
+  }
+  .bw-input-wrap{
+    display:flex;align-items:center;gap:0;
+    max-width:220px;margin:0 auto;
+    background:var(--white);
+    border:1.5px solid var(--border);border-radius:12px;
+    overflow:hidden;transition:border-color .18s;
+  }
+  .bw-input-wrap:focus-within{border-color:var(--gold);}
+  .bw-input-wrap input{
+    flex:1;width:100%;border:none;background:transparent;
+    padding:16px 14px 16px 18px;font-family:inherit;
+    font-family:'Montserrat',sans-serif;font-weight:800;
+    font-size:24px;color:var(--ink);text-align:right;
+  }
+  .bw-input-wrap input:focus{outline:none;}
+  .bw-unit{
+    padding:16px 18px 16px 4px;font-family:inherit;
+    font-weight:700;font-size:14px;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--grey);
+  }
+  .gender-picker{
+    display:grid;grid-template-columns:1fr 1fr;gap:9px;
+    max-width:360px;margin:0 auto;
+  }
+  .gender-opt{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--white);border:1.5px solid var(--border);
+    border-radius:12px;padding:16px 14px;cursor:pointer;
+    font-family:inherit;transition:border-color .18s,background .18s;
+  }
+  .gender-opt:hover{border-color:var(--gold);background:var(--cream-2);}
+  .gender-opt.selected{border-color:var(--gold);background:rgba(196,164,74,0.10);}
+  .gender-opt .g-name{
+    font-family:'Montserrat',sans-serif;font-weight:700;
+    font-size:13px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--ink);
+  }
+  .gender-opt .a-radio{
+    width:18px;height:18px;flex-shrink:0;
+    border:2px solid var(--grey-soft);border-radius:50%;
+    position:relative;transition:border-color .18s;
+  }
+  .gender-opt:hover .a-radio,.gender-opt.selected .a-radio{border-color:var(--gold);}
+  .gender-opt.selected .a-radio::after{
+    content:"";position:absolute;inset:3px;border-radius:50%;
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  }
+  .setup-err{
+    text-align:center;font-size:12.5px;color:#C4544A;
+    min-height:18px;margin-bottom:10px;font-weight:500;
   }
 
   /* ============ ANSWERS (question mode) ============ */
@@ -381,13 +442,13 @@
 
 <div class="stage">
   <div class="card">
-    <div class="brand"><img src="karved-wordmark.png" alt="KARVED"></div>
+    <div class="brand-bar"><img src="karved-wordmark.png" alt="KARVED"></div>
 
     <!-- ============ SCREEN 1: INTRO ============ -->
     <div id="intro" class="screen active">
-      <div class="eyebrow">Peak Performance Standards</div>
+      <div class="eyebrow">Peak Performance</div>
       <div class="divider"></div>
-      <h1>The 10-Test<br><span class="accent">Benchmark</span></h1>
+      <h1>The 10<br><span class="accent">Standards</span></h1>
       <p class="lead">Ten tests across six pillars. One score out of 100. Find out exactly where you stand, and which pillar is dragging you down.</p>
       <div class="pillar-chips">
         <span>Body Composition</span>
@@ -398,9 +459,45 @@
         <span>Cognition</span>
       </div>
       <div class="intro-cta">
-        <button class="btn-primary" onclick="startTest()">Start The Test</button>
+        <button class="btn-primary" onclick="showSetup()">Start The Benchmark</button>
       </div>
       <div class="intro-note">10 questions. About 2 minutes.</div>
+    </div>
+
+    <!-- ============ SCREEN 1B: SETUP (bodyweight + gender) ============ -->
+    <div id="setup" class="screen">
+      <div class="eyebrow">Step 1 of 2</div>
+      <div class="divider"></div>
+      <h1>The <span class="accent">Setup</span></h1>
+      <p class="lead">Two quick inputs so the strength benchmarks calibrate to your bodyweight.</p>
+
+      <div class="setup-block">
+        <label class="setup-label">Your bodyweight</label>
+        <div class="bw-input-wrap">
+          <input type="number" id="setupBW" placeholder="80" min="30" max="250" step="0.5" inputmode="decimal">
+          <span class="bw-unit">kg</span>
+        </div>
+      </div>
+
+      <div class="setup-block">
+        <label class="setup-label">Gender</label>
+        <div class="gender-picker">
+          <button type="button" class="gender-opt" data-g="male" onclick="pickGender('male', this)">
+            <span class="a-radio"></span>
+            <span class="g-name">Male</span>
+          </button>
+          <button type="button" class="gender-opt" data-g="female" onclick="pickGender('female', this)">
+            <span class="a-radio"></span>
+            <span class="g-name">Female</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="setup-err" id="setupErr"></div>
+
+      <div class="intro-cta">
+        <button class="btn-primary" onclick="submitSetup()">Continue</button>
+      </div>
     </div>
 
     <!-- ============ SCREEN 2: QUESTION (dynamic) ============ -->
@@ -473,13 +570,16 @@ var TESTS = [
     tiers:['Over 22%','22%','18%','15%','12%'] },
   { pillar:'Strength', name:'3RM Trap Bar Deadlift',
     how:'Three reps, full form, warm and recovered. Not at the end of a session.',
-    tiers:['Under 1.25 × BW','1.25 × BW','1.5 × BW','2.0 × BW','2.4 × BW'] },
+    tiers:['Under 1.25 × BW','1.25 × BW','1.5 × BW','2.0 × BW','2.4 × BW'],
+    bwMultipliers:[1.25,1.25,1.5,2.0,2.4] },
   { pillar:'Strength', name:'3RM Back Squat',
     how:'Three reps, full depth, hip crease below knee. Warm and recovered.',
-    tiers:['Under 1.0 × BW','1.0 × BW','1.25 × BW','1.5 × BW','1.85 × BW'] },
+    tiers:['Under 1.0 × BW','1.0 × BW','1.25 × BW','1.5 × BW','1.85 × BW'],
+    bwMultipliers:[1.0,1.0,1.25,1.5,1.85] },
   { pillar:'Strength', name:'3RM Strict Overhead Press',
     how:'Three reps, strict, no leg drive. Standing, full lockout.',
-    tiers:['Under 0.5 × BW','0.5 × BW','0.625 × BW','0.75 × BW','0.9 × BW'] },
+    tiers:['Under 0.5 × BW','0.5 × BW','0.625 × BW','0.75 × BW','0.9 × BW'],
+    bwMultipliers:[0.5,0.5,0.625,0.75,0.9] },
   { pillar:'Strength', name:'Max Strict Pull-Ups',
     how:'Dead-hang start, chin over bar, no kip. One set to failure.',
     tiers:['Under 5 reps','5 reps','8 reps','12 reps','18 reps'] },
@@ -516,6 +616,8 @@ var RANKS = [
 
 var answers = {};
 var lastResult = null;
+var userBW = 0;
+var userGender = '';
 
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
@@ -524,9 +626,42 @@ function showScreen(id){
   window.scrollTo({ top:0, behavior:'smooth' });
 }
 
-function startTest(){
+function showSetup(){
+  showScreen('setup');
+}
+
+function pickGender(g, btnEl){
+  userGender = g;
+  document.querySelectorAll('.gender-opt').forEach(function(b){ b.classList.remove('selected'); });
+  btnEl.classList.add('selected');
+  document.getElementById('setupErr').textContent = '';
+}
+
+function submitSetup(){
+  var bw = parseFloat(document.getElementById('setupBW').value);
+  var err = document.getElementById('setupErr');
+  err.textContent = '';
+
+  if(!bw || isNaN(bw) || bw < 30 || bw > 250){
+    err.textContent = 'Enter a valid bodyweight in kg (30 to 250).';
+    return;
+  }
+  if(!userGender){
+    err.textContent = 'Select your gender.';
+    return;
+  }
+
+  userBW = bw;
   showScreen('qscreen');
   renderQuestion(0);
+}
+
+function formatTierValue(test, tierIdx){
+  if(!test.bwMultipliers || !userBW) return test.tiers[tierIdx];
+  var raw = test.bwMultipliers[tierIdx] * userBW;
+  var kg = Math.round(raw / 2.5) * 2.5;
+  var kgStr = (kg % 1 === 0) ? kg.toFixed(0) : kg.toFixed(1);
+  return tierIdx === 0 ? 'Under ' + kgStr + ' kg' : kgStr + ' kg';
 }
 
 function renderQuestion(i){
@@ -539,12 +674,13 @@ function renderQuestion(i){
 
   var html = '';
   t.tiers.forEach(function(v, ti){
+    var display = formatTierValue(t, ti);
     html +=
       '<button class="answer" onclick="pick(' + i + ', ' + ti + ', this)">' +
         '<span class="a-radio"></span>' +
         '<span class="a-content">' +
           '<span class="a-tier">' + TIER_NAMES[ti] + '</span>' +
-          '<span class="a-value">' + v + '</span>' +
+          '<span class="a-value">' + display + '</span>' +
         '</span>' +
       '</button>';
   });
@@ -613,6 +749,8 @@ function submitGate(){
   var payload = {
     firstName: fn,
     email: em,
+    bodyweight_kg: userBW,
+    gender: userGender,
     score: lastResult.score,
     rank: lastResult.rank,
     weakestPillar: lastResult.weakName,
@@ -667,11 +805,16 @@ function revealBreakdown(){
 function resetAll(){
   answers = {};
   lastResult = null;
+  userBW = 0;
+  userGender = '';
   document.getElementById('gate').style.display = 'block';
   document.getElementById('breakdown').style.display = 'none';
   document.getElementById('firstName').value = '';
   document.getElementById('email').value = '';
   document.getElementById('gateErr').textContent = '';
+  document.getElementById('setupBW').value = '';
+  document.getElementById('setupErr').textContent = '';
+  document.querySelectorAll('.gender-opt').forEach(function(b){ b.classList.remove('selected'); });
   var btn = document.getElementById('gateBtn');
   btn.disabled = false; btn.textContent = 'Reveal My Breakdown';
   showScreen('intro');
